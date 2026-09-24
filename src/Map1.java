@@ -2,7 +2,7 @@ public class Map1 {
 
     private Room currentRoom;
 
-    public Map1(){
+    public Map1() {
 
         Room room1 = new Room("Rum 1", "");
         Room room2 = new Room("Rum 2", "...");
@@ -45,5 +45,13 @@ public class Map1 {
     }
 
 
+    public Room getCurrentRoom() {
+
+        return currentRoom;
+    }
+    public Room setCurrentRoom(Room east){
+
+        return null;
+    }
 }
 
