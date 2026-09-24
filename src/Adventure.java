@@ -8,3 +8,5 @@ public class Adventure {
         // test motherfuckerrrs
     }
 }
+
+// jeg er her
