@@ -13,13 +13,14 @@ public class Adventure {
                 while (true) {
 
                     System.out.println("Du er i: " + map.getCurrentRoom().getName());
+                    System.out.println("Vægle for at komme vidrer " );
 
                     System.out.println( map.getCurrentRoom().getDescription());
 
-                    System.out.println("N ");
-                    System.out.println("S ");
-                    System.out.println("E " );
-                    System.out.println("W ");
+                    System.out.println("N = North ");
+                    System.out.println("S = South");
+                    System.out.println("E = East" );
+                    System.out.println("W = West");
 
                     String valg = scanner.nextLine();
 
@@ -28,13 +29,15 @@ public class Adventure {
                         if (map.getCurrentRoom().getNorth() != null) {
                             map.setCurrentRoom(
                                     map.getCurrentRoom().getNorth());
-                        }
+                        } else System.out.println("You can't go this derication");
 
                     } else if (valg.equalsIgnoreCase("S")) {
 
                         if (map.getCurrentRoom().getSouth() != null) {
                             map.setCurrentRoom(
                                     map.getCurrentRoom().getSouth());
+                        } else {
+                            System.out.println("Der mangler en værdo");
                         }
 
                     } else if (valg.equalsIgnoreCase("E")) {

@@ -46,12 +46,10 @@ public class Map1 {
 
 
     public Room getCurrentRoom() {
-
         return currentRoom;
     }
-    public Room setCurrentRoom(Room east){
-
-        return null;
+    public void setCurrentRoom(Room room){
+        currentRoom = room;
     }
 }
 
