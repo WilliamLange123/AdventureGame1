@@ -9,4 +9,4 @@ public class Adventure {
     }
 }
 
-// jeg er her
+// ny test
