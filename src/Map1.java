@@ -1,7 +1,5 @@
 public class Map1 {
 
-    private Room currentRoom;
-
 
     Room room1 = new Room("Room 1", "A scorching chamber lit by rivers of lava. The walls glow red with unbearable heat.");
     Room room2 = new Room("Room 2", "Flames dance across the floor while black smoke crawls along the ceiling. The air reeks of sulfur.");
@@ -42,13 +40,10 @@ public class Map1 {
         room9.setNorth(room6);
         room9.setWest(room8);
 
-        currentRoom = room1;
     }
-    public Room getCurrentRoom(){
-        return currentRoom;
+    public Room getStartingRoom() {
+        return room1;
     }
-    public void setCurrentRoom(){
-        this.currentRoom =currentRoom;
-    }
+
 }
 
