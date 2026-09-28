@@ -1,7 +1,10 @@
+import java.util.ArrayList;
+
 public class Room {
 
     private String name;
     private String description;
+    private ArrayList<Item> Item;
 
     private Room north;
     private Room east;
@@ -11,28 +14,25 @@ public class Room {
     public Room(String name, String description) {
         this.description = description;
         this.name = name;
+        this.Item = new ArrayList<>();
     }
 
     public String getDescription() {
         return description;
     }
-
-    public String getName() {
+    public String getName(){
         return name;
     }
 
     public Room getEast() {
         return east;
     }
-
     public Room getNorth() {
         return north;
     }
-
     public Room getSouth() {
         return south;
     }
-
     public Room getWest() {
         return west;
     }
@@ -40,20 +40,25 @@ public class Room {
     public void setEast(Room east) {
         this.east = east;
     }
-
-    public void setNorth(Room north) {
+    public void setNorth(Room north){
         this.north = north;
     }
-
-    public void setSouth(Room south) {
+    public void setSouth(Room south){
         this.south = south;
     }
-
-    public void setWest(Room west) {
+    public void setWest(Room west){
         this.west = west;
     }
 
-    public Room move(String direction) {
-        return null;
+    public void addItem(Item item) {
+        Item.add(item);
     }
+    public void removeItem(Item item) {
+        Item.remove(item);
+    }
+    public ArrayList<Item> getItems() {
+        return Item;
+    }
+
+
 }
