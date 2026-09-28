@@ -59,6 +59,28 @@ public class Room {
     public ArrayList<Item> getItems() {
         return Item;
     }
+    public Item removeItem(String itemName) {
+        for (Item item : Item) {
+            if (item.getShortName().equalsIgnoreCase(itemName)) {
+                Item.remove(item);
+                return item;
+            }
+        }
+        return null;
 
+    }
+    public void look() {
 
+        System.out.println(getDescription());
+
+        if (Item.isEmpty()) {
+            System.out.println("There are no items here.");
+        } else {
+            System.out.println("You can see:");
+
+            for (Item item : Item) {
+                System.out.println("- " + item.getShortName());
+            }
+        }
+    }
 }
