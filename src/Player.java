@@ -51,7 +51,7 @@ public class Player {
 
 
     for (Item item : inventory) {
-        System.out.println(item.getShortName());
+        //System.out.println(item.getShortName());
     }
 }
     public Room getCurrentRoom(){
