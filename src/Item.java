@@ -3,9 +3,12 @@ public class Item {
     private String shortName;
     private String longName;
 
-    public Item (String shortName, String longName){
+    public Item (String shortName, String longName) {
+        this.shortName = shortName;
+        this.longName = longName;
+    }
         // "Vigtige items", med længere beskrivelse.
-        Item lantern = new Item("lantern", "A shiny red lantern");
+        public static Item lantern = new Item("lantern", "A shiny red lantern");
         Item ember = new Item("ember", "A glowing ember from the eternal fires of Hell. It radiates intense heat and never seems to burn out");
         Item skull = new Item("skull", "A cracked human skull with glowing red eyes. It seems to watch your every move");
         Item chain = new Item("chain", "A heavy iron chain stained with soot and blood. It was likely used to punish lost souls");
@@ -27,8 +30,7 @@ public class Item {
         Item bell = new Item("bell", "A small bronze bell");
         Item torch = new Item("torch", "A wooden torch still burning");
 
-
     }
 
 
-}
+
