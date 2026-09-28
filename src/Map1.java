@@ -15,7 +15,7 @@ public class Map1 {
 
         room1.setEast(room2);
         room1.setSouth(room4);
-        room1.addItem(Item.lantern);
+        room1.addItem(GamesItems.lantern);
 
 
         room2.setEast(room3);

@@ -53,8 +53,15 @@ public class Room {
     public void addItem(Item item) {
         Item.add(item);
     }
-    public void removeItem(Item item) {
-        Item.remove(item);
+    public Item removeItem(String itemName) {
+
+        for (Item item : Item) {
+            if (item.getShortName().equalsIgnoreCase(itemName)) {
+                Item.remove(item);
+                return item;
+            }
+        }
+        return null;
     }
     public ArrayList<Item> getItems() {
         return Item;
