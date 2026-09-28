@@ -20,19 +20,23 @@ public class Room {
     public String getDescription() {
         return description;
     }
-    public String getName(){
+
+    public String getName() {
         return name;
     }
 
     public Room getEast() {
         return east;
     }
+
     public Room getNorth() {
         return north;
     }
+
     public Room getSouth() {
         return south;
     }
+
     public Room getWest() {
         return west;
     }
@@ -40,19 +44,23 @@ public class Room {
     public void setEast(Room east) {
         this.east = east;
     }
-    public void setNorth(Room north){
+
+    public void setNorth(Room north) {
         this.north = north;
     }
-    public void setSouth(Room south){
+
+    public void setSouth(Room south) {
         this.south = south;
     }
-    public void setWest(Room west){
+
+    public void setWest(Room west) {
         this.west = west;
     }
 
     public void addItem(Item item) {
         Item.add(item);
     }
+
     public Item removeItem(String itemName) {
 
         for (Item item : Item) {
@@ -63,9 +71,23 @@ public class Room {
         }
         return null;
     }
+
     public ArrayList<Item> getItems() {
         return Item;
     }
 
+    public void look() {
 
+        System.out.println(getDescription());
+
+        if (Item.isEmpty()) {
+            System.out.println("There are no items here.");
+        } else {
+            System.out.println("You can see:");
+
+            for (Item item : Item) {
+                System.out.println("- " + item.getShortName());
+            }
+        }
+    }
 }

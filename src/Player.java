@@ -33,7 +33,7 @@ public class Player {
 
     }
     public void takeItem(Item item){
-        currentRoom.removeItem(item);
+       // currentRoom.removeItem(Item);
         inventory.add(item);
     }
     public void dropItem(Item item){
