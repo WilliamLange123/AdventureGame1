@@ -34,5 +34,9 @@ public class Adventure {
         System.out.println(player.getCurrentRoom().getDescription());
     }
 
+    public void pickup(String itemName){player.pickup(itemName);}
+    public void drop(String itemName){player.drop(itemName);}
+
+
 
 }
