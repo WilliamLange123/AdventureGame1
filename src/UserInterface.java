@@ -28,6 +28,8 @@ public class UserInterface {
                 game.move("go south");
             } else if (command.equals("go west")) {
                 game.move("go west");
+            } else if (command.equals("inventory")) {
+                game.inventory();
             } else if (command.equals("exit")) {
                 System.out.println("Goodbye!");
                 break;
