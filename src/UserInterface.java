@@ -11,7 +11,7 @@ public class UserInterface {
 
         game.look();
 
-
+//
         while (true) {
             System.out.print("What do you do: ");
             String command = scanner.nextLine();
