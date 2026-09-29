@@ -10,7 +10,10 @@ public class Player {
 
     private Map1 map;
 
-    public Player(){map = new Map1();}
+    public Player() {
+        map = new Map1();
+    }
+
     public void move(String direction) {
 
         Room nextRoom = switch (direction.toLowerCase()) {
@@ -30,14 +33,17 @@ public class Player {
         }
 
     }
-    public void takeItem(Item item){
-       // currentRoom.removeItem(Item);
+
+    public void takeItem(Item item) {
+        // currentRoom.removeItem(Item);
         inventory.add(item);
     }
-    public void dropItem(Item item){
+
+    public void dropItem(Item item) {
         inventory.remove(item);
         currentRoom.addItem(item);
     }
+
     public void showInventory() {
 
         if (inventory.isEmpty()) {
@@ -48,19 +54,47 @@ public class Player {
         System.out.println("inventory: ");
 
 
-    for (Item item : inventory) {
-        //System.out.println(item.getShortName());
+        for (Item item : inventory) {
+            //System.out.println(item.getShortName());
+        }
     }
-}
-    public Room getCurrentRoom(){
+
+    public Room getCurrentRoom() {
         return currentRoom;
     }
-    public void setCurrentRoom(){
+
+    public void setCurrentRoom() {
         this.currentRoom = currentRoom;
     }
+
     public void look() {
         System.out.println("You are currently in: " + currentRoom.getName());
         currentRoom.look();
+
     }
 
-}
+    public void pickup(String itemName) {
+        Item item = currentRoom.removeItem(itemName);
+
+        if (item != null) {
+            inventory.add(item);
+            System.out.println("You picked up the " + item.getShortName());
+        } else {
+            System.out.println("That item is not here.");
+        }
+    }
+    public void drop(String itemName){
+        for ( Item item : inventory) {
+            if (item.getShortName().equalsIgnoreCase(itemName)) {
+                inventory.remove(item);
+                currentRoom.addItem(item);
+                System.out.println("You dropped the " + item.getShortName());
+                return;
+            }
+
+        System.out.println(" You don't have that item. " );
+    }
+        }
+    }
+
+

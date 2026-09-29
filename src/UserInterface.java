@@ -8,8 +8,8 @@ public class UserInterface {
     Scanner scanner = new Scanner(System.in);
 
     public void start() {
+       game.showCurrentRoom();
 
-        game.look();
 
 
         while (true) {
@@ -29,10 +29,13 @@ public class UserInterface {
                 game.move("go west");
             } else if (command.equals("exit")) {
                 System.out.println("Goodbye!");
-                break;
+            } else if (command.startsWith("pickup ")){ String itemName = command.substring(7); game.pickup(itemName);}
+                 else if (command.startsWith("drop ")){String itemName = command.substring(5);game.drop(itemName);}
+                 else if (command.equals("inventory")) {game.inventory();}
+
+
             }
         }
 
     }
 
-}
