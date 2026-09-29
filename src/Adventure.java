@@ -23,6 +23,8 @@ public class Adventure {
         System.out.println("go south");
         System.out.println("go west");
         System.out.println("look");
+        System.out.println("pickup");
+        System.out.println("drop");
         System.out.println("inventory");
         System.out.println("help");
         System.out.println("exit");

@@ -55,7 +55,7 @@ public class Player {
 
 
         for (Item item : inventory) {
-            //System.out.println(item.getShortName());
+            System.out.println(item.getShortName());
         }
     }
 
@@ -92,9 +92,10 @@ public class Player {
                 return;
             }
 
-        System.out.println(" You don't have that item. " );
     }
-        }
+        System.out.println(" You don't have that item. " );
+
+    }
     }
 
 
