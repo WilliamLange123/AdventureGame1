@@ -23,8 +23,16 @@ public class Adventure {
         System.out.println("go south");
         System.out.println("go west");
         System.out.println("look");
+        System.out.println("inventory");
         System.out.println("help");
         System.out.println("exit");
     }
+    public void inventory() {
+        player.showInventory();
+    }
+    public void showCurrentRoom() {
+        System.out.println(player.getCurrentRoom().getDescription());
+    }
+
 
 }
