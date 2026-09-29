@@ -10,9 +10,7 @@ public class Player {
 
     private Map1 map;
 
-    public Player(){
-        map = new Map1();
-    }
+    public Player(){map = new Map1();}
     public void move(String direction) {
 
         Room nextRoom = switch (direction.toLowerCase()) {
@@ -62,7 +60,7 @@ public class Player {
     }
     public void look() {
         System.out.println("You are currently in: " + currentRoom.getName());
-        System.out.println(currentRoom.getDescription());
+        currentRoom.look();
     }
 
 }
