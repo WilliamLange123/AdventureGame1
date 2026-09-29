@@ -13,6 +13,7 @@ public class UserInterface {
 
 
         while (true) {
+            System.out.print("What do you do: ");
             String command = scanner.nextLine();
 
             if (command.equals("look")) {
@@ -30,9 +31,10 @@ public class UserInterface {
             } else if (command.equals("exit")) {
                 System.out.println("Goodbye!");
                 break;
+            } else {
+                System.out.println("Unknown command, try again");
             }
         }
 
     }
-
 }
