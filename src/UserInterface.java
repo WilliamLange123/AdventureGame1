@@ -9,7 +9,7 @@ public class UserInterface {
 
     public void start() {
 
-        game.look();
+        game.showCurrentRoom();
 
 //
         while (true) {

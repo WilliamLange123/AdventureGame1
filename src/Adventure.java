@@ -30,4 +30,9 @@ public class Adventure {
     public void inventory() {
         player.showInventory();
     }
+    public void showCurrentRoom() {
+        System.out.println(player.getCurrentRoom().getDescription());
+    }
+
+
 }
