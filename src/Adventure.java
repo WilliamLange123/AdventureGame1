@@ -23,14 +23,16 @@ public class Adventure {
         System.out.println("go south");
         System.out.println("go west");
         System.out.println("look");
+        System.out.println("inventory");
         System.out.println("help");
         System.out.println("exit");
     }
-    public void pickup(String itemName){player.pickup(itemName);}
-    public void drop(String itemName){player.drop(itemName);}
-    public void inventory(){player.showInventory();}
-    public void showCurrentRoom() {System.out.println("You are currently in: " + player.getCurrentRoom().getName());
-
+    public void inventory() {
+        player.showInventory();
+    }
+    public void showCurrentRoom() {
         System.out.println(player.getCurrentRoom().getDescription());
     }
+
+
 }

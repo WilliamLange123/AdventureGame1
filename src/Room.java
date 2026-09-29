@@ -86,35 +86,8 @@ public class Room {
             System.out.println("You can see:");
 
             for (Item item : Item) {
-                System.out.println("- " + item.getShortName());
-
-
-                        }
-                    }
-                }
-    public void showItems() {
-
-        if (Item.isEmpty()) {
-
-            System.out.println("There are no items here.");
-
-        } else {
-
-            System.out.println("You can see:");
-
-            for (Item item : Item) {
-
-                System.out.println("- " + item.getShortName());
-
+                System.out.println("- " + item.getLongName());
             }
         }
     }
-
-            }
-
-
-
-
-
-
-
+}
