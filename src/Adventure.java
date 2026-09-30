@@ -18,15 +18,16 @@ public class Adventure {
 
     public void help() {
         System.out.println("Available commands:");
-        System.out.println("go north");
-        System.out.println("go east");
-        System.out.println("go south");
-        System.out.println("go west");
-        System.out.println("look");
-        System.out.println("pickup");
-        System.out.println("drop");
-        System.out.println("inventory");
-        System.out.println("help");
+        System.out.print("go north, ");
+        System.out.print("go east, ");
+        System.out.print("go south, ");
+        System.out.print("go west, ");
+        System.out.print("look, ");
+        System.out.print("eat, ");
+        System.out.print("pickup, ");
+        System.out.print("drop, ");
+        System.out.print("inventory, ");
+        System.out.print("help, ");
         System.out.println("exit");
     }
     public void inventory() {
@@ -35,10 +36,27 @@ public class Adventure {
     public void showCurrentRoom() {
         System.out.println(player.getCurrentRoom().getDescription());
     }
+    public void pickup(String itemName){
+        player.pickup(itemName);
+    }
+    public void drop(String itemName){
+        player.drop(itemName);
+    }
+    public void eat(String itemName) {
+        Player.EatOutcome outcome = player.eat(itemName);
+        switch (outcome.getResult()) {
+            case EATEN:
+                System.out.println("You ate " + outcome.getItemName());
+                break;
 
-    public void pickup(String itemName){player.pickup(itemName);}
-    public void drop(String itemName){player.drop(itemName);}
+            case NOT_FOOD:
+                System.out.println("You can't eat that.");
+                break;
 
-
+            case NOT_FOUND:
+                System.out.println("You don't have that item.");
+                break;
+        }
+    }
 
 }

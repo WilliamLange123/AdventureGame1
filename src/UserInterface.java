@@ -11,7 +11,7 @@ public class UserInterface {
 
         game.showCurrentRoom();
 
-//
+
         while (true) {
             System.out.print("What do you do: ");
             String command = scanner.nextLine();
@@ -28,14 +28,20 @@ public class UserInterface {
                 game.move("go south");
             } else if (command.equals("go west")) {
                 game.move("go west");
+            } else if (command.startsWith("eat ")) {
+                String itemName = command.substring(4);
+                game.eat(itemName);
             } else if (command.equals("inventory")) {
                 game.inventory();
             } else if (command.equals("exit")) {
                 System.out.println("Goodbye!");
                 break;
-            }else if (command.startsWith("pickup ")){ String itemName = command.substring(7); game.pickup(itemName);}
-                else if (command.startsWith("drop ")){String itemName = command.substring(5);game.drop(itemName);}
-                else if (command.equals("inventory")) {game.inventory();}
+            }else if (command.startsWith("pickup ")){
+                String itemName = command.substring(7); game.pickup(itemName);}
+            else if (command.startsWith("drop ")){
+                String itemName = command.substring(5);game.drop(itemName);}
+            else if (command.equals("inventory")) {
+                game.inventory();}
 
             else
                 System.out.println("Unknown command, try again");
