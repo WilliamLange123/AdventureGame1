@@ -80,32 +80,33 @@ public class Player {
                 return healthChange;
             }
         }
-    public EatOutcome eat(String itemName) {
-        for (Item item : inventory) {
-            if (item.getShortName().equalsIgnoreCase(itemName)) {
-                if (!item.isFood()) {
-                    return new EatOutcome(
-                            EatResult.NOT_FOOD,
-                            item.getShortName(),
-                            0
-                    );
-                }
-                inventory.remove(item);
-//                health += 10;     vi skal have en health attribut i player class før dette virker
-                return new EatOutcome(
-                        EatResult.EATEN,
-                        item.getShortName(),
-                        10
-                );
-            }
-        }
-
-        return new EatOutcome(
-                EatResult.NOT_FOUND,
-                null,
-                0
-        );
-    }
+        // Sidste funktion vi mangler: Koble denne til items som kan spises.
+//    public EatOutcome eat(String itemName) {
+//        for (Item item : inventory) {
+//            if (item.getShortName().equalsIgnoreCase(itemName)) {
+//                if (!item.isFood()) {
+//                    return new EatOutcome(
+//                            EatResult.NOT_FOOD,
+//                            item.getShortName(),
+//                            0
+//                    );
+//                }
+//                inventory.remove(item);
+////                health += 10;     vi skal have en health attribut i player class før dette virker
+//                return new EatOutcome(
+//                        EatResult.EATEN,
+//                        item.getShortName(),
+//                        10
+//                );
+//            }
+//        }
+//
+//        return new EatOutcome(
+//                EatResult.NOT_FOUND,
+//                null,
+//                0
+//        );
+//    }
 
 
     public Room getCurrentRoom() {
