@@ -16,10 +16,12 @@ public class Map1 {
         room1.setEast(room2);
         room1.setSouth(room4);
         room1.addItem(GamesItems.lantern);
+        room1.addItem(GamesItems.mushroom);
 
         room2.setEast(room3);
         room2.setWest(room1);
         room2.addItem(GamesItems.gem);
+        room2.addItem(GamesItems.dragonEgg);
 
         room3.setSouth(room6);
         room3.setWest(room2);
@@ -29,6 +31,7 @@ public class Map1 {
         room4.setNorth(room1);
         room4.addItem(GamesItems.ember);
         room4.addItem(GamesItems.torch);
+        room4.addItem(GamesItems.emberFruit);
 
         room5.setSouth(room8);
         room5.addItem(GamesItems.scroll); //ender her til sidst, så et specielt item
@@ -42,6 +45,7 @@ public class Map1 {
         room7.setNorth(room4);
         room7.setEast(room8);
         room7.addItem(GamesItems.coal);
+        room7.addItem(GamesItems.mysteryMeat);
 
         room8.setNorth(room5);
         room8.setEast(room9);
@@ -49,6 +53,7 @@ public class Map1 {
         room8.addItem(GamesItems.crown);
         room8.addItem(GamesItems.fang);
         room8.addItem(GamesItems.claw);
+        room8.addItem(GamesItems.devilsCake);
 
         room9.setNorth(room6);
         room9.setWest(room8);

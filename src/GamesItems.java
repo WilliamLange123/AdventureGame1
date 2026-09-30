@@ -22,4 +22,10 @@ public class GamesItems {
     static Item bell = new Item("bell", "A small bronze bell");
     static Item torch = new Item("torch", "A wooden torch still burning");
 
+    // "Food-items", med længere beskrivelse.
+    static Food mushroom = new Food("mushroom", "A suspicious looking mushroom with a bright red cap and white spots.", -20);
+    static Food dragonEgg = new Food("dragon egg", "A very large blackened egg covered in red cracks. It radiates an intense heat, as if something is still alive inside.", +50);
+    static Food emberFruit = new Food("ember fruit", "A strange red fruit that glows like a hot coal. Despite its burning skin, it feels surprisingly cool inside.", +40);
+    static Food mysteryMeat = new Food("mystery meat", "A charred piece of meat covered in strange black markings. It smells awful, but something about it looks strangely appetizing.", 10);
+    static Food devilsCake = new Food("devils cake", "A dark chocolate cake covered in black icing. It smells strangely warm, as if it was baked in Hell itself.", 25);
 }
