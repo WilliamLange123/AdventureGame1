@@ -57,7 +57,56 @@ public class Player {
         for (Item item : inventory) {
             System.out.println(item.getShortName());
         }
+}
+        public enum EatResult { NOT_FOUND, NOT_FOOD, EATEN }
+
+        public class EatOutcome {
+            private final EatResult result;
+            private final String itemName;   // tingens lange navn (null hvis den ikke blev fundet)
+            private final int healthChange;  // 0 hvis intet blev spist
+
+            public EatOutcome(EatResult result, String itemName, int healthChange) {
+                this.result = result;
+                this.itemName = itemName;
+                this.healthChange = healthChange;
+            }
+            public EatResult getResult() {
+                return result;
+            }
+            public String getItemName() {
+                return itemName;
+            }
+            public int getHealthChange() {
+                return healthChange;
+            }
+        }
+    public EatOutcome eat(String itemName) {
+        for (Item item : inventory) {
+            if (item.getShortName().equalsIgnoreCase(itemName)) {
+                if (!item.isFood()) {
+                    return new EatOutcome(
+                            EatResult.NOT_FOOD,
+                            item.getShortName(),
+                            0
+                    );
+                }
+                inventory.remove(item);
+//                health += 10;     vi skal have en health attribut i player class før dette virker
+                return new EatOutcome(
+                        EatResult.EATEN,
+                        item.getShortName(),
+                        10
+                );
+            }
+        }
+
+        return new EatOutcome(
+                EatResult.NOT_FOUND,
+                null,
+                0
+        );
     }
+
 
     public Room getCurrentRoom() {
         return currentRoom;
@@ -96,6 +145,6 @@ public class Player {
         System.out.println(" You don't have that item. " );
 
     }
-    }
+}
 
 
