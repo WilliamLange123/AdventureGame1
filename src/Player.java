@@ -2,10 +2,12 @@ import java.util.ArrayList;
 public class Player {
     private Room currentRoom;
     private ArrayList<Item> inventory;
+    private int health;
 
     public Player(Room room1) {
         currentRoom = room1;
         inventory = new ArrayList<>();
+        health = 100;
     }
 
     private Map1 map;
@@ -57,30 +59,36 @@ public class Player {
         for (Item item : inventory) {
             System.out.println(item.getShortName());
         }
-}
-        public enum EatResult { NOT_FOUND, NOT_FOOD, EATEN }
+    }
 
-        public class EatOutcome {
-            private final EatResult result;
-            private final String itemName;   // tingens lange navn (null hvis den ikke blev fundet)
-            private final int healthChange;  // 0 hvis intet blev spist
+    public enum EatResult {NOT_FOUND, NOT_FOOD, EATEN}
 
-            public EatOutcome(EatResult result, String itemName, int healthChange) {
-                this.result = result;
-                this.itemName = itemName;
-                this.healthChange = healthChange;
-            }
-            public EatResult getResult() {
-                return result;
-            }
-            public String getItemName() {
-                return itemName;
-            }
-            public int getHealthChange() {
-                return healthChange;
-            }
+    public class EatOutcome {
+        private final EatResult result;
+        private final String itemName;   // tingens lange navn (null hvis den ikke blev fundet)
+        private final int healthChange;  // 0 hvis intet blev spist
+
+        public EatOutcome(EatResult result, String itemName, int healthChange) {
+            this.result = result;
+            this.itemName = itemName;
+            this.healthChange = healthChange;
         }
-        // Sidste funktion vi mangler: Koble denne til items som kan spises.
+
+        public EatResult getResult() {
+            return result;
+        }
+
+        public String getItemName() {
+            return itemName;
+        }
+
+        public int getHealthChange() {
+            return healthChange;
+        }
+
+
+    }
+    // Sidste funktion vi mangler: Koble denne til items som kan spises.
 //    public EatOutcome eat(String itemName) {
 //        for (Item item : inventory) {
 //            if (item.getShortName().equalsIgnoreCase(itemName)) {
@@ -92,7 +100,8 @@ public class Player {
 //                    );
 //                }
 //                inventory.remove(item);
-////                health += 10;     vi skal have en health attribut i player class før dette virker
+
+    /// /                health += 10;     vi skal have en health attribut i player class før dette virker
 //                return new EatOutcome(
 //                        EatResult.EATEN,
 //                        item.getShortName(),
@@ -107,8 +116,6 @@ public class Player {
 //                0
 //        );
 //    }
-
-
     public Room getCurrentRoom() {
         return currentRoom;
     }
@@ -133,19 +140,45 @@ public class Player {
             System.out.println("That item is not here.");
         }
     }
-    public void drop(String itemName){
-        for ( Item item : inventory) {
+    public void drop(String itemName) {
+        for (Item item : inventory) {
             if (item.getShortName().equalsIgnoreCase(itemName)) {
                 inventory.remove(item);
                 currentRoom.addItem(item);
                 System.out.println("You dropped the " + item.getShortName());
                 return;
             }
-
+        }
+        System.out.println(" You don't have that item. ");
     }
-        System.out.println(" You don't have that item. " );
+    public void showHealth() {
 
+            if (health == 100) {System.out.println("Health: " + health + " - You are in perfect health");}
+            else if (health >= 70) {System.out.println("Health: " + health + " - You are feeling good");}
+            else if (health >= 40) {System.out.println("Health: " + health + " - You are injured");}
+            else if (health >= 1){System.out.println("Health: " + health + "You are badly heart"  );}
+            else {System.out.println("Health: " + health + " - You are badly hurt");}
+
+        System.out.println("Health: " + health);
     }
+    public void takeDamage(int amount) {
+        health -= amount;
+
+        if (health < 0) {
+            health = 0;
+        }
+
+        System.out.println("You lost " + amount + " health.");
+    }
+    public void heal(int amount) {
+        health += amount;
+
+        if (health > 100) {
+            health = 100;
+        }
+
+        System.out.println("You gained " + amount + " health.");
+    }
+
 }
-
 

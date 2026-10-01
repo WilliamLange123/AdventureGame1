@@ -15,6 +15,9 @@ public class Adventure {
     public void look() {
         player.look();
     }
+    public void showHealth(){
+        player.showHealth();
+    }
 
     public void help() {
         System.out.println("Available commands:");

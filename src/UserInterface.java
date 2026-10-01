@@ -18,6 +18,9 @@ public class UserInterface {
 
             if (command.equals("look")) {
                 game.look();
+                if (command.equals("exit")){
+                    game.showHealth();
+                }
             } else if (command.equals("help")) {
                 game.help();
             } else if (command.equals("go north")) {
@@ -42,6 +45,9 @@ public class UserInterface {
                 String itemName = command.substring(5);game.drop(itemName);}
             else if (command.equals("inventory")) {
                 game.inventory();}
+            else if (command.equals("health")){
+                game.showHealth();
+            }
 
             else
                 System.out.println("Unknown command, try again");
