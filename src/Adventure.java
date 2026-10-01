@@ -46,20 +46,20 @@ public class Adventure {
         player.drop(itemName);
     }
     public void eat(String itemName) {
-//        Player.EatOutcome outcome = player.eat(itemName);
-//        switch (outcome.getResult()) {
-//            case EATEN:
-//                System.out.println("You ate " + outcome.getItemName());
-//                break;
-//
-//            case NOT_FOOD:
-//                System.out.println("You can't eat that.");
-//                break;
-//
-//            case NOT_FOUND:
-//                System.out.println("You don't have that item.");
-//                break;
-//        }
+        Player.EatOutcome outcome = player.eat(itemName);
+        switch (outcome.getResult()) {
+            case EATEN:
+                System.out.println("You ate " + outcome.getItemName());
+                break;
+
+            case NOT_FOOD:
+                System.out.println("You can't eat that.");
+                break;
+
+            case NOT_FOUND:
+                System.out.println("You don't have that item.");
+                break;
+        }
     }
 
 }

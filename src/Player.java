@@ -35,12 +35,11 @@ public class Player {
         }
 
     }
-
     public void takeItem(Item item) {
-        // currentRoom.removeItem(Item);
-        inventory.add(item);
+        if (item != null) {
+            inventory.add(item);
+        }
     }
-
     public void dropItem(Item item) {
         inventory.remove(item);
         currentRoom.addItem(item);
@@ -50,10 +49,10 @@ public class Player {
 
         if (inventory.isEmpty()) {
 
-            System.out.println("your inventory is empty. ");
+            System.out.println("Your inventory is empty.");
             return;
         }
-        System.out.println("inventory: ");
+        System.out.println("Inventory: ");
 
 
         for (Item item : inventory) {
@@ -85,37 +84,42 @@ public class Player {
         public int getHealthChange() {
             return healthChange;
         }
-
-
     }
-    // Sidste funktion vi mangler: Koble denne til items som kan spises.
-//    public EatOutcome eat(String itemName) {
-//        for (Item item : inventory) {
-//            if (item.getShortName().equalsIgnoreCase(itemName)) {
-//                if (!item.isFood()) {
-//                    return new EatOutcome(
-//                            EatResult.NOT_FOOD,
-//                            item.getShortName(),
-//                            0
-//                    );
-//                }
-//                inventory.remove(item);
+    public EatOutcome eat(String itemName) {
 
-    /// /                health += 10;     vi skal have en health attribut i player class før dette virker
-//                return new EatOutcome(
-//                        EatResult.EATEN,
-//                        item.getShortName(),
-//                        10
-//                );
-//            }
-//        }
-//
-//        return new EatOutcome(
-//                EatResult.NOT_FOUND,
-//                null,
-//                0
-//        );
-//    }
+        for (int i = 0; i < inventory.size(); i++) {
+
+            Item item = inventory.get(i);
+
+            if (item.getShortName().equalsIgnoreCase(itemName)) {
+
+                if (!(item instanceof Food)) {
+                    return new EatOutcome(
+                            EatResult.NOT_FOOD,
+                            item.getShortName(),
+                            0
+                    );
+                }
+
+                Food food = (Food) item;
+
+                inventory.remove(i);
+
+                health += food.getHealthPoints();
+
+                return new EatOutcome(
+                        EatResult.EATEN,
+                        item.getShortName(),
+                        food.getHealthPoints()
+                );
+            }
+        }
+        return new EatOutcome(
+                EatResult.NOT_FOUND,
+                null,
+                0
+        );
+    }
     public Room getCurrentRoom() {
         return currentRoom;
     }
@@ -156,7 +160,7 @@ public class Player {
             if (health == 100) {System.out.println("Health: " + health + " - You are in perfect health");}
             else if (health >= 70) {System.out.println("Health: " + health + " - You are feeling good");}
             else if (health >= 40) {System.out.println("Health: " + health + " - You are injured");}
-            else if (health >= 1){System.out.println("Health: " + health + "You are badly heart"  );}
+            else if (health >= 1){System.out.println("Health: " + health + "You are badly hurt");}
             else {System.out.println("Health: " + health + " - You are badly hurt");}
 
         System.out.println("Health: " + health);
@@ -179,6 +183,4 @@ public class Player {
 
         System.out.println("You gained " + amount + " health.");
     }
-
 }
-
