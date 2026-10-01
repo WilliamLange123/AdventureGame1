@@ -157,13 +157,12 @@ public class Player {
     }
     public void showHealth() {
 
-            if (health == 100) {System.out.println("Health: " + health + " - You are in perfect health");}
-            else if (health >= 70) {System.out.println("Health: " + health + " - You are feeling good");}
-            else if (health >= 40) {System.out.println("Health: " + health + " - You are injured");}
-            else if (health >= 1){System.out.println("Health: " + health + "You are badly hurt");}
-            else {System.out.println("Health: " + health + " - You are badly hurt");}
+            if (health >= 100) {System.out.println("Health: " + health + " - You are in perfect health.");}
+            else if (health >= 70) {System.out.println("Health: " + health + " - You are feeling good.");}
+            else if (health >= 40) {System.out.println("Health: " + health + " - You are injured.");}
+            else if (health >= 1){System.out.println("Health: " + health + "You are badly hurt.");}
+            else {System.out.println("Health: " + health + " - You should be dead.");}
 
-        System.out.println("Health: " + health);
     }
     public void takeDamage(int amount) {
         health -= amount;
