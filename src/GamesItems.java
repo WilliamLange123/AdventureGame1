@@ -1,6 +1,6 @@
 public class GamesItems {
     // "Vigtige items", med længere beskrivelse.
-    public static Item lantern = new Item("lantern", "A shiny red lantern");
+    public static Item lantern = new Item("lantern", "A shiny red [lantern].");
     static Item ember = new Item("ember", "A glowing ember from the eternal fires of Hell. It radiates intense heat and never seems to burn out");
     static Item skull = new Item("skull", "A cracked human skull with glowing red eyes. It seems to watch your every move");
     static Item chain = new Item("chain", "A heavy iron chain stained with soot and blood. It was likely used to punish lost souls");
@@ -23,11 +23,11 @@ public class GamesItems {
     static Item torch = new Item("torch", "A wooden torch still burning");
 
     // "Food-items", med længere beskrivelse.
-    static Food mushroom = new Food("mushroom", "A suspicious looking mushroom with a bright red cap and white spots.", -20);
-    static Food dragonEgg = new Food("dragon egg", "A very large blackened egg covered in red cracks. It radiates an intense heat, as if something is still alive inside.", +50);
+    static Food mushroom = new Food("mushroom", "A suspicious looking [mushroom] with a bright red cap and white spots.", -20);
+    static Food dragonEgg = new Food("egg", "A very large blackened [egg] covered in red cracks. It radiates an intense heat, as if something is still alive inside.", +50);
     static Food emberFruit = new Food("ember fruit", "A strange red fruit that glows like a hot coal. Despite its burning skin, it feels surprisingly cool inside.", +40);
     static Food mysteryMeat = new Food("mystery meat", "A charred piece of meat covered in strange black markings. It smells awful, but something about it looks strangely appetizing.", 10);
-    static Food devilsCake = new Food("devils cake", "A dark chocolate cake covered in black icing. It smells strangely warm, as if it was baked in Hell itself.", 25);
+    static Food devilsCake = new Food("cake", "A dark chocolate cake covered in black icing. It smells strangely warm, as if it was baked in Hell itself.", 25);
     // Simple foods
     static Food apple = new Food("apple", "A fresh red apple", 5);
     static Food bread = new Food("bread", "A piece of warm bread", 8);
