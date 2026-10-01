@@ -87,6 +87,7 @@ public class Player {
     }
     public EatOutcome eat(String itemName) {
 
+        // Tjek inventory først
         for (int i = 0; i < inventory.size(); i++) {
 
             Item item = inventory.get(i);
@@ -104,8 +105,7 @@ public class Player {
                 Food food = (Food) item;
 
                 inventory.remove(i);
-
-                health += food.getHealthPoints();
+                heal(food.getHealthPoints());
 
                 return new EatOutcome(
                         EatResult.EATEN,
@@ -114,11 +114,41 @@ public class Player {
                 );
             }
         }
+
+        // Hvis ikke i inventory, så tjek rummet
+        Item item = currentRoom.removeItem(itemName);
+
+        if (item != null) {
+
+            if (!(item instanceof Food)) {
+
+                currentRoom.addItem(item);
+
+                return new EatOutcome(
+                        EatResult.NOT_FOOD,
+                        item.getShortName(),
+                        0
+                );
+            }
+
+            Food food = (Food) item;
+
+            heal(food.getHealthPoints());
+
+            return new EatOutcome(
+                    EatResult.EATEN,
+                    item.getShortName(),
+                    food.getHealthPoints()
+            );
+        }
+
+        // Kun hvis item'et hverken findes i inventory eller rum
         return new EatOutcome(
                 EatResult.NOT_FOUND,
                 null,
                 0
         );
+
     }
     public Room getCurrentRoom() {
         return currentRoom;
@@ -180,6 +210,5 @@ public class Player {
             health = 100;
         }
 
-        System.out.println("You gained " + amount + " health.");
     }
 }

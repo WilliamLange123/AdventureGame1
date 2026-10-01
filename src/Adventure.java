@@ -50,6 +50,7 @@ public class Adventure {
         switch (outcome.getResult()) {
             case EATEN:
                 System.out.println("You ate " + outcome.getItemName());
+                System.out.println("You gained " + outcome.getHealthChange() + " health.");
                 break;
 
             case NOT_FOOD:
