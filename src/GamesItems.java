@@ -25,9 +25,10 @@ public class GamesItems {
     // "Food-items", med længere beskrivelse.
     static Food mushroom = new Food("mushroom", "A suspicious looking [mushroom] with a bright red cap and white spots.", -20);
     static Food dragonEgg = new Food("egg", "A very large blackened [egg] covered in red cracks. It radiates an intense heat, as if something is still alive inside.", +50);
-    static Food emberFruit = new Food("ember fruit", "A strange red fruit that glows like a hot coal. Despite its burning skin, it feels surprisingly cool inside.", +40);
-    static Food mysteryMeat = new Food("mystery meat", "A charred piece of meat covered in strange black markings. It smells awful, but something about it looks strangely appetizing.", 10);
-    static Food devilsCake = new Food("cake", "A dark chocolate cake covered in black icing. It smells strangely warm, as if it was baked in Hell itself.", 25);
+    static Food emberFruit = new Food("fruit", "A strange red [fruit} that glows like a hot coal. Despite its burning skin, it feels surprisingly cool inside.", +40);
+    static Food mysteryMeat = new Food("meat", "A charred piece of [meat] covered in strange black markings. It smells awful, but something about it looks strangely appetizing.", 10);
+    static Food devilsCake = new Food("cake", "A dark chocolate [cake] covered in black icing. It smells strangely warm, as if it was baked in Hell itself.", 25);
+
     // Simple foods
     static Food apple = new Food("apple", "A fresh red apple", 5);
     static Food bread = new Food("bread", "A piece of warm bread", 8);
@@ -38,6 +39,7 @@ public class GamesItems {
     static Food rottenApple = new Food("rotten apple", "A rotten green apple", -8);
     static Food spoiledMeat = new Food("spoiled meat", "A foul-smelling piece of spoiled meat", -12);
     static Food dirtyWater = new Food("dirty water", "A bottle of dirty water", -6);
+
     // Specielle foods
     static Food hellFruit = new Food("hell fruit", "A glowing fruit found deep within Hell. Despite its fiery appearance, it restores energy and strength", 20);
     static Food phoenixMeat = new Food("phoenix meat", "Meat from a legendary phoenix. Warm to the touch and filled with life-giving power", 25);
