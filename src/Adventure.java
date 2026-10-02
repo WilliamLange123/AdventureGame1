@@ -31,6 +31,7 @@ public class Adventure {
         System.out.print("drop, ");
         System.out.print("inventory, ");
         System.out.print("help, ");
+        System.out.print("health, ");
         System.out.println("exit");
     }
     public void inventory() {
