@@ -50,4 +50,12 @@ public class GamesItems {
     static Food demonMeat = new Food("demon meat", "Meat taken from a fallen demon. It is toxic to humans despite its appetizing smell", -30);
     static Food soulRot = new Food("soul rot", "A blackened lump of food corrupted by dark magic. Consuming it drains both body and spirit", -35);
 
+    // Test-våben, kan fjernes senere
+    static Weapon demonsBranch = new MeleeWeapon("branch", "A thick, twisted [branch] covered in black ash. It looks like it was torn from a dead tree.", 10);
+    static Weapon ashSling = new RangedWeapon("sling", "A crude [sling] made from leather and a forked piece of wood. It is loaded with small chunks of volcanic rock.", 5, 3);
+
+    // Våben
+    static Weapon frostFang = new MeleeWeapon("sword", "A [sword] forged from ancient glacial ice. Its freezing edge is said to pierce even the toughest dragon scales.", 45);
+    static Weapon dragonPiercer = new RangedWeapon ("crossbow", "A heavy [crossbow] designed to penetrate thick dragon scales. Its silver-tipped bolts are difficult to replace.", 30, 4);
+
 }

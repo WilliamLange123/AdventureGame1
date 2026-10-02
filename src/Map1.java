@@ -17,15 +17,18 @@ public class Map1 {
         room1.setSouth(room4);
         room1.addItem(GamesItems.lantern);
         room1.addItem(GamesItems.mushroom);
+        room1.addItem((GamesItems.ashSling));
 
         room2.setEast(room3);
         room2.setWest(room1);
         room2.addItem(GamesItems.gem);
         room2.addItem(GamesItems.dragonEgg);
+        room2.addItem((GamesItems.demonsBranch));
 
         room3.setSouth(room6);
         room3.setWest(room2);
         room3.addItem(GamesItems.key);
+        room3.addItem(GamesItems.dragonPiercer);
 
         room4.setSouth(room7);
         room4.setNorth(room1);
@@ -46,6 +49,7 @@ public class Map1 {
         room7.setEast(room8);
         room7.addItem(GamesItems.coal);
         room7.addItem(GamesItems.mysteryMeat);
+        room7.addItem(GamesItems.frostFang);
 
         room8.setNorth(room5);
         room8.setEast(room9);
