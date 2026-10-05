@@ -32,6 +32,7 @@ public class Adventure {
         System.out.print("inventory, ");
         System.out.print("help, ");
         System.out.print("health, ");
+        System.out.print("equip, ");
         System.out.println("exit");
     }
     public void inventory() {
@@ -63,5 +64,5 @@ public class Adventure {
                 break;
         }
     }
-
+    public void equip(String itemName) {player.equip(itemName);}
 }

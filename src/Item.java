@@ -16,6 +16,8 @@ public class Item {
     public String getLongName() {
         return longName;
     }
-
+    public boolean canEquip(){
+        return false;
+    }
 }
 

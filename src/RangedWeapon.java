@@ -1,29 +1,16 @@
-public class RangedWeapon extends Weapon {
+public class RangedWeapon extends Weapon{
 
-    private int usesLeft;
+    private int ammunition;
 
-    public RangedWeapon(String shortName, String longName, int damage, int usesLeft) {
-        super(shortName, longName, damage);
-        this.usesLeft = usesLeft;
+    public RangedWeapon(String name, String description, int damage, int ammunition){
+
+        super(name, description, damage);
+        this.ammunition = ammunition;
     }
-    // hvis uses left større end 0 = true, hvis uses left mindre end 0 = false
-    @Override
-    public boolean canUse() {
-        return usesLeft > 0;
+    public int getAmmunition(){
+        return ammunition;
     }
-    // hver gang man bruger (hvis man kan overhovedet bruge våbnet, så det ikke går i minus), mister man 1 use
-    @Override
-    public void use() {
-        if (canUse()) {
-            usesLeft--;
-        }
-    }
-    @Override
-    public String getAttackVerb() {
-        return "shoots";
-    }
-    @Override
-    public String getUsesLeftText() {
-        return usesLeft + " uses left";
+    public void useAmmuntion (){
+        ammunition--;
     }
 }

@@ -207,4 +207,46 @@ public class Player {
         health += amount;
 
     }
+    public Item findItem(String itemName)
+    {
+        for(Item item : inventory)
+        {
+            if(item.getShortName().equalsIgnoreCase(itemName))
+            {
+                return item;
+            }
+        }
+        return null;
+    }
+
+    private Weapon equippedWeapon;
+
+    public Weapon getEquippedWeapon(){
+        return equippedWeapon;
+    }
+    public void setEquippedWeapon(Weapon weapon){
+        equippedWeapon = weapon;
+    }
+    public void equip(String itemName)
+    {
+        Item item = findItem(itemName);
+
+        if(item == null)
+        {
+            System.out.println("Item not found.");
+            return;
+        }
+
+        if(item.canEquip())
+        {
+            setEquippedWeapon((Weapon) item);
+
+            System.out.println(item.getShortName() + " equipped.");
+        }
+        else
+        {
+            System.out.println("You cannot equip that item.");
+        }
+    }
+
 }
