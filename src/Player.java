@@ -35,11 +35,13 @@ public class Player {
         }
 
     }
+
     public void takeItem(Item item) {
         if (item != null) {
             inventory.add(item);
         }
     }
+
     public void dropItem(Item item) {
         inventory.remove(item);
         currentRoom.addItem(item);
@@ -85,6 +87,7 @@ public class Player {
             return healthChange;
         }
     }
+
     public EatOutcome eat(String itemName) {
 
         // Tjek inventory først
@@ -150,6 +153,7 @@ public class Player {
         );
 
     }
+
     public Room getCurrentRoom() {
         return currentRoom;
     }
@@ -174,6 +178,7 @@ public class Player {
             System.out.println("That item is not here.");
         }
     }
+
     public void drop(String itemName) {
         for (Item item : inventory) {
             if (item.getShortName().equalsIgnoreCase(itemName)) {
@@ -185,15 +190,23 @@ public class Player {
         }
         System.out.println(" You don't have that item. ");
     }
+
     public void showHealth() {
 
-            if (health >= 100) {System.out.println("Health: " + health + " - You are in perfect health.");}
-            else if (health >= 70) {System.out.println("Health: " + health + " - You are feeling good.");}
-            else if (health >= 40) {System.out.println("Health: " + health + " - You are injured.");}
-            else if (health >= 1){System.out.println("Health: " + health + "You are badly hurt.");}
-            else {System.out.println("Health: " + health + " - You should be dead.");}
+        if (health >= 100) {
+            System.out.println("Health: " + health + " - You are in perfect health.");
+        } else if (health >= 70) {
+            System.out.println("Health: " + health + " - You are feeling good.");
+        } else if (health >= 40) {
+            System.out.println("Health: " + health + " - You are injured.");
+        } else if (health >= 1) {
+            System.out.println("Health: " + health + "You are badly hurt.");
+        } else {
+            System.out.println("Health: " + health + " - You should be dead.");
+        }
 
     }
+
     public void takeDamage(int amount) {
         health -= amount;
 
@@ -203,16 +216,15 @@ public class Player {
 
         System.out.println("You lost " + amount + " health.");
     }
+
     public void heal(int amount) {
         health += amount;
 
     }
-    public Item findItem(String itemName)
-    {
-        for(Item item : inventory)
-        {
-            if(item.getShortName().equalsIgnoreCase(itemName))
-            {
+
+    public Item findItem(String itemName) {
+        for (Item item : inventory) {
+            if (item.getShortName().equalsIgnoreCase(itemName)) {
                 return item;
             }
         }
@@ -221,32 +233,48 @@ public class Player {
 
     private Weapon equippedWeapon;
 
-    public Weapon getEquippedWeapon(){
+    public Weapon getEquippedWeapon() {
         return equippedWeapon;
     }
-    public void setEquippedWeapon(Weapon weapon){
+
+    public void setEquippedWeapon(Weapon weapon) {
         equippedWeapon = weapon;
     }
-    public void equip(String itemName)
-    {
+
+    public void equip(String itemName) {
         Item item = findItem(itemName);
 
-        if(item == null)
-        {
+        if (item == null) {
             System.out.println("Item not found.");
             return;
         }
 
-        if(item.canEquip())
-        {
+        if (item.canEquip()) {
             setEquippedWeapon((Weapon) item);
 
             System.out.println(item.getShortName() + " equipped.");
-        }
-        else
-        {
+        } else {
             System.out.println("You cannot equip that item.");
         }
     }
 
+    public void attack() {
+    int damage;
+        if (equippedWeapon == null) {
+            System.out.println("You have no weapon equipped.");
+            return;
+        }
+        else {
+            damage = equippedWeapon.getDamage();
+            System.out.println(
+                    "You attack with "
+                            + equippedWeapon.getShortName()
+                            + " and deal "
+                            + damage
+                            + " damage."
+            );
+        }
+
+        equippedWeapon.attack();
+    }
 }

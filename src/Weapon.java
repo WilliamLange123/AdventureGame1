@@ -1,9 +1,9 @@
-public class Weapon extends Item{
+public abstract class Weapon extends Item {
 
-    private int damage;
+    private final int damage;
 
-    public Weapon(String name, String description, int damage){
-        super(name, description);
+    public Weapon(String shortName, String longName, int damage) {
+        super(shortName, longName);
         this.damage = damage;
     }
 
@@ -11,7 +11,14 @@ public class Weapon extends Item{
         return damage;
     }
 
-    @Override
+    public abstract boolean canUse(); //kan våbnet overhovedet bruges nu?
+
+    public abstract void attack(); //brug våbnet
+
+    public abstract String getAttackVerb(); //beskriv hvordan våbnet angrebet, fx slash eller shoot
+
+    public abstract String getUsesLeftText(); //hvor meget ammunition du har
+
     public boolean canEquip() {
         return true;
     }

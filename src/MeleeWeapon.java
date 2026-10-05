@@ -1,6 +1,22 @@
-public class MeleeWeapon extends Weapon{
+public class MeleeWeapon extends Weapon {
 
-    public MeleeWeapon(String name, String description, int damage){
-        super(name, description, damage);
+    public MeleeWeapon(String shortName, String longName, int damage) {
+        super(shortName, longName, damage);
+    }
+    //bruger canUse() fra Weapon, men her er det altid true, fordi de her våben kan altid bruges
+    @Override
+    public boolean canUse() {
+        return true;
+    }
+    @Override
+    public void attack() {
+    }
+    @Override
+    public String getAttackVerb() {
+        return "slashes";
+    }
+    @Override
+    public String getUsesLeftText() {
+        return "unlimited uses";
     }
 }

@@ -52,6 +52,10 @@ public class UserInterface {
                 String itemName = command.substring(6);
                 game.equip(itemName);
             }
+            else if (command.equals("attack")){
+                game.attack();
+
+            }
             else
                 System.out.println("Unknown command, try again.");
             }

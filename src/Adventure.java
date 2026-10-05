@@ -1,6 +1,6 @@
 import java.util.Locale;
 
-public class Adventure {
+public class   Adventure {
     private Player player;
     private Map1 map;
     public Adventure() {
@@ -33,7 +33,9 @@ public class Adventure {
         System.out.print("help, ");
         System.out.print("health, ");
         System.out.print("equip, ");
+        System.out.print("attack, ");
         System.out.println("exit");
+
     }
     public void inventory() {
         player.showInventory();
@@ -62,7 +64,11 @@ public class Adventure {
             case NOT_FOUND:
                 System.out.println("You don't have that item.");
                 break;
+
         }
     }
     public void equip(String itemName) {player.equip(itemName);}
+    public void attack(){
+        player.attack();
+    }
 }
