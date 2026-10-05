@@ -56,9 +56,16 @@ public class Player {
         }
         System.out.println("Inventory: ");
 
-
         for (Item item : inventory) {
             System.out.println(item.getShortName());
+        }
+        System.out.println();
+        if (equippedWeapon == null) {
+            System.out.println("Equipped weapon: None");
+        }
+        else {
+            System.out.println("Equipped weapon: "
+                    + equippedWeapon.getShortName());
         }
     }
 
@@ -258,23 +265,27 @@ public class Player {
         }
     }
 
-    public void attack() {
-    int damage;
-        if (equippedWeapon == null) {
-            System.out.println("You have no weapon equipped.");
+    public void attack()
+    {
+        if(equippedWeapon == null)
+        {
+            System.out.println("No weapon equipped.");
             return;
         }
-        else {
-            damage = equippedWeapon.getDamage();
-            System.out.println(
-                    "You attack with "
-                            + equippedWeapon.getShortName()
-                            + " and deal "
-                            + damage
-                            + " damage."
-            );
+        if(!equippedWeapon.canUse())
+        {
+            System.out.println("No ammunition left.");
+            return;
         }
-
+        int damage = equippedWeapon.getDamage();
         equippedWeapon.attack();
+        System.out.println("You "
+                + equippedWeapon.getAttackVerb()
+                + " with "
+                + equippedWeapon.getShortName()
+                + " and deal "
+                + damage
+                + " damage. "
+                + equippedWeapon.getUsesLeftText());
+        }
     }
-}
