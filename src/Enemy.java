@@ -42,12 +42,35 @@ public class Enemy {
         public void hit(int damage) {
             health -= damage;
 
-            if (health <=0) {
-                room.addItem(weapon);
-                //room.removeEnemy(this); //tilføj removeEnemy() til Room, ellers rød.
-                System.out.println(getShortName() + " dead. " +     weapon.getShortName() + " dropped.");
+            if (health <= 0) {
+
+                if (weapon != null) {
+                    room.addItem(weapon);
+
+                    System.out.println(
+                            getShortName() + " dead. " +
+                                    weapon.getShortName() + " dropped.");
+                } else {
+                    System.out.println(
+                            getShortName() + " dead.");
+                }
+                //room.removeEnemy(this); //rød nu, fordi vi skal tilføje removeEnemy i Room først.
             }
         }
-        //ikke færdig endnu
+        //attack player
+        public void attack(Player player) {
+            if (weapon == null) {
+                return;
+            }
+
+            if (!weapon.canUse()) {
+                return;
+            }
+
+            int damage = weapon.getDamage();
+
+            weapon.attack();
+            player.takeDamage(damage);
+        }
 }
 

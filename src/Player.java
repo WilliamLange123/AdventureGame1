@@ -264,23 +264,29 @@ public class Player {
             System.out.println("You cannot equip that item.");
         }
     }
+    public void attack(Enemy enemy) {
 
-    public void attack()
-    {
-        if(equippedWeapon == null)
-        {
+        if (enemy == null) {
+            System.out.println("There is no enemy to attack.");
+            return;
+        }
+        if (equippedWeapon == null) {
             System.out.println("No weapon equipped.");
             return;
         }
-        if(!equippedWeapon.canUse())
-        {
+        if (!equippedWeapon.canUse()) {
             System.out.println("No ammunition left.");
             return;
         }
         int damage = equippedWeapon.getDamage();
+
         equippedWeapon.attack();
+        enemy.hit(damage);
+
         System.out.println("You "
                 + equippedWeapon.getAttackVerb()
+                + " the "
+                + enemy.getShortName()
                 + " with "
                 + equippedWeapon.getShortName()
                 + " and deal "
