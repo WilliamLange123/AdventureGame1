@@ -18,38 +18,52 @@ public class Map1 {
         room1.addItem(GamesItems.lantern);
         room1.addItem(GamesItems.mushroom);
         room1.addItem((GamesItems.ashSling));
+        room1.addEnemy(GamesItems.lesserDemon);
+        GamesItems.lesserDemon.setRoom(room1);
 
         room2.setEast(room3);
         room2.setWest(room1);
         room2.addItem(GamesItems.gem);
         room2.addItem(GamesItems.dragonEgg);
         room2.addItem((GamesItems.demonsBranch));
+        room2.addEnemy(GamesItems.hellHound);
+        GamesItems.hellHound.setRoom(room2);
 
         room3.setSouth(room6);
         room3.setWest(room2);
         room3.addItem(GamesItems.key);
         room3.addItem(GamesItems.dragonPiercer);
+        room3.addEnemy(GamesItems.soulCollector);
+        GamesItems.soulCollector.setRoom(room3);
 
         room4.setSouth(room7);
         room4.setNorth(room1);
         room4.addItem(GamesItems.ember);
         room4.addItem(GamesItems.torch);
         room4.addItem(GamesItems.emberFruit);
+        room4.addEnemy(GamesItems.infernalGuard);
+        GamesItems.infernalGuard.setRoom(room4);
 
         room5.setSouth(room8);
         room5.addItem(GamesItems.scroll); //ender her til sidst, så et specielt item
         room5.addItem(GamesItems.mask);
+        room5.addEnemy(GamesItems.demonLord);
+        GamesItems.demonLord.setRoom(room5);
 
         room6.setSouth(room9);
         room6.setNorth(room3);
         room6.addItem(GamesItems.chain);
         room6.addItem(GamesItems.skull);
+        room6.addEnemy(GamesItems.fireWraith);
+        GamesItems.fireWraith.setRoom(room6);
 
         room7.setNorth(room4);
         room7.setEast(room8);
         room7.addItem(GamesItems.coal);
         room7.addItem(GamesItems.mysteryMeat);
         room7.addItem(GamesItems.frostFang);
+        room7.addEnemy(GamesItems.torturedWarrior);
+        GamesItems.torturedWarrior.setRoom(room7);
 
         room8.setNorth(room5);
         room8.setEast(room9);
@@ -58,11 +72,15 @@ public class Map1 {
         room8.addItem(GamesItems.fang);
         room8.addItem(GamesItems.claw);
         room8.addItem(GamesItems.devilsCake);
+        room8.addEnemy(GamesItems.executioner);
+        GamesItems.executioner.setRoom(room8);
 
         room9.setNorth(room6);
         room9.setWest(room8);
         room9.addItem(GamesItems.pitchfork);
         room9.addItem(GamesItems.horn);
+        room9.addEnemy(GamesItems.abyssStalker);
+        GamesItems.abyssStalker.setRoom(room9);
 
     }
     public Room getStartingRoom() {

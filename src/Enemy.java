@@ -35,6 +35,9 @@ public class Enemy {
         public Room getRoom() {
             return room;
         }
+        public void setRoom(Room room) {
+        this.room = room;
+        }
         //hit()
         public void hit(int damage) {
             health -= damage;
