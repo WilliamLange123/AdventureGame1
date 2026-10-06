@@ -35,6 +35,7 @@ public class Enemy {
         public Room getRoom() {
             return room;
         }
+
         //hit()
         public void hit(int damage) {
             health -= damage;
@@ -47,4 +48,3 @@ public class Enemy {
         }
         //ikke færdig endnu
 }
-
