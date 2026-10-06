@@ -91,16 +91,26 @@ public class Room {
                 System.out.println("- " + item.getLongName());
             }
         }
+        if (enemies.isEmpty()) {
+            System.out.println("There are no enemies here.");
+        } else {
+            System.out.println("Enemies:");
 
+            for (Enemy enemy : enemies) {
+                System.out.println("- " + enemy.getLongName());
+            }
+        }
     }
-    public ArrayList<Enemy> getEnemy() {
+
+    public ArrayList<Enemy> getEnemies() {
         return enemies;
     }
-    public void addEnemy(Enemy enemy){
+
+    public void addEnemy(Enemy enemy) {
         enemies.add(enemy);
     }
 
-    public void removeEnemy(Enemy enemy){
+    public void removeEnemy(Enemy enemy) {
         enemies.remove(enemy);
     }
 }

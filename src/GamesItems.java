@@ -1,4 +1,5 @@
 public class GamesItems {
+
     // "Vigtige items", med længere beskrivelse.
     public static Item lantern = new Item("lantern", "A shiny red [lantern].");
     static Item ember = new Item("ember", "A glowing ember from the eternal fires of Hell. It radiates intense heat and never seems to burn out");
@@ -66,14 +67,16 @@ public class GamesItems {
     static Weapon giantFlamingAxe = new MeleeWeapon("axe", "A massive [axe] engulfed in eternal fire.", 15);
     static Weapon shadowKnives = new RangedWeapon("knives", "Multiple [knives] of darkness thrown from the shadows.", 16, 10);
     static Weapon hellFire = new RangedWeapon("hellfire", "A devastating projectile of [hellfire].", 25, 15);
+
     //Enemy
-    static Enemy lesserDemon = new Enemy("demon", "lesser demon", "A small red demon with glowing yellow eyes. It snarls constantly and leaves scorch marks wherever it walks.", 30, rustyClaws, null);
-    static Enemy hellHound = new Enemy("hound", "hell hound", "A massive black dog with burning fur and smoke pouring from its mouth.", 40, flamingFangs, null);
-    static Enemy soulCollector = new Enemy("collector", "soul collector", "A hooded creature carrying a lantern filled with trapped souls. Faint cries can be heard from within.", 50, soulChain, null);
-    static Enemy infernalGuard = new Enemy("guard", "infernal guard", "A heavily armored demon guarding the deeper regions of Hell. Its armor glows with molten cracks.", 60, hellSpear, null);
-    static Enemy demonLord = new Enemy("lord", "demon lord", "The ruler of this region of Hell. Horns crown its head, and molten lava flows through the cracks in its skin.", 200, hellFire, null);
-    static Enemy fireWraith = new Enemy("wraith", "fire wraith", "A ghostly figure made entirely of flames. It floats above the ground and leaves trails of fire behind.", 70, fireBolts, null);
-    static Enemy torturedWarrior = new Enemy("warrior", "tortured warrior", "The remains of a fallen knight cursed to wander Hell forever. Pieces of charred armor cling to its body.", 80, brokenGreatsword, null);
-    static Enemy executioner = new Enemy("executioner", "the executioner", "A towering brute with burning chains wrapped around its body. It relentlessly hunts intruders.", 100, giantFlamingAxe, null);
-    static Enemy abyssStalker = new Enemy("stalker", "abyss stalker", "A shadowy creature lurking in the darkness. Only its glowing red eyes reveal its presence.", 120, shadowKnives, null);
+    static Enemy emberling = new Enemy("emberling", "small emberling","A small [emberling] born from the flames of Hell. Its body is covered in black scales, glowing with cracks of molten red beneath them. It attacks with razor-sharp claws.", 20, rustyClaws, null);
+    static Enemy lesserDemon = new Enemy("demon", "lesser demon", "A small red [demon] with glowing yellow eyes. It snarls constantly and leaves scorch marks wherever it walks.", 30, rustyClaws, null);
+    static Enemy hellHound = new Enemy("hound", "hell hound", "A massive black [hound] with burning fur and smoke pouring from its mouth.", 40, flamingFangs, null);
+    static Enemy soulCollector = new Enemy("collector", "soul collector", "A hooded soul [collector] carrying a lantern filled with trapped souls. Faint cries can be heard from within.", 50, soulChain, null);
+    static Enemy infernalGuard = new Enemy("knight", "infernal knight", "A heavily armored [knight] guarding the deeper regions of Hell. Its armor glows with molten cracks.", 60, hellSpear, null);
+    static Enemy demonLord = new Enemy("ruler", "demon ruler", "The [ruler] of this region of Hell. Horns crown its head, and molten lava flows through the cracks in its skin.", 200, hellFire, null);
+    static Enemy fireWraith = new Enemy("wraith", "fire wraith", "A ghostly [wraith] made entirely of flames. It floats above the ground and leaves trails of fire behind.", 70, fireBolts, null);
+    static Enemy torturedWarrior = new Enemy("warrior", "tortured warrior", "The remains of a fallen [warrior] cursed to wander Hell forever. Pieces of charred armor cling to its body.", 80, brokenGreatsword, null);
+    static Enemy executioner = new Enemy("executioner", "the executioner", "A towering [executioner] with burning chains wrapped around its body. It relentlessly hunts intruders.", 100, giantFlamingAxe, null);
+    static Enemy abyssStalker = new Enemy("stalker", "abyss stalker", "A shadowy [stalker] lurking in the darkness. Only its glowing red eyes reveal its presence.", 120, shadowKnives, null);
 }

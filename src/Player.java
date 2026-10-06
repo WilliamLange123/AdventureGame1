@@ -62,8 +62,7 @@ public class Player {
         System.out.println();
         if (equippedWeapon == null) {
             System.out.println("Equipped weapon: None");
-        }
-        else {
+        } else {
             System.out.println("Equipped weapon: "
                     + equippedWeapon.getShortName());
         }
@@ -264,6 +263,7 @@ public class Player {
             System.out.println("You cannot equip that item.");
         }
     }
+
     public void attack(Enemy enemy) {
 
         if (enemy == null) {
@@ -281,17 +281,23 @@ public class Player {
         int damage = equippedWeapon.getDamage();
 
         equippedWeapon.attack();
+
         enemy.hit(damage);
 
-        System.out.println("You "
-                + equippedWeapon.getAttackVerb()
-                + " the "
-                + enemy.getShortName()
-                + " with "
-                + equippedWeapon.getShortName()
-                + " and deal "
-                + damage
-                + " damage. "
-                + equippedWeapon.getUsesLeftText());
+        System.out.println(
+                "You "
+                        + equippedWeapon.getAttackVerb()
+                        + " the "
+                        + enemy.getShortName()
+                        + " with "
+                        + equippedWeapon.getShortName()
+                        + " and deal "
+                        + damage
+                        + " damage. "
+                        + equippedWeapon.getUsesLeftText()
+        );
+        if (enemy.getHealth() > 0) {
+            enemy.attack(this);
         }
     }
+}

@@ -68,7 +68,18 @@ public class   Adventure {
         }
     }
     public void equip(String itemName) {player.equip(itemName);}
-    public void attack(){
-        player.attack();
+
+    //Player angriber enemy, er kun sat til hvis der kun er 1 enemy i et room, kan ændres senere
+    public void attack() {
+
+        if (player.getCurrentRoom().getEnemies().isEmpty()) {
+            System.out.println("There is no enemy here to attack.");
+            return;
+        }
+
+        //get(0) = den første enemy på listen af enemies i rummet, skrevet i rækkefølgen top to bottom i Map1
+        Enemy enemy = player.getCurrentRoom().getEnemies().get(0);
+
+        player.attack(enemy);
     }
 }
