@@ -5,7 +5,7 @@ public class Room {
     private String name;
     private String description;
     private ArrayList<Item> Item;
-    private ArrayList<Enemy> enemy;
+    private ArrayList<Enemy> enemies;
 
     private Room north;
     private Room east;
@@ -16,7 +16,7 @@ public class Room {
         this.description = description;
         this.name = name;
         this.Item = new ArrayList<>();
-        this.enemy = new ArrayList<>();
+        this.enemies = new ArrayList<>();
     }
 
     public String getDescription() {
@@ -91,5 +91,16 @@ public class Room {
                 System.out.println("- " + item.getLongName());
             }
         }
+
+    }
+    public ArrayList<Enemy> getEnemy() {
+        return enemies;
+    }
+    public void addEnemy(Enemy enemy){
+        enemies.add(enemy);
+    }
+
+    public void removeEnemy(Enemy enemy){
+        enemies.remove(enemy);
     }
 }
