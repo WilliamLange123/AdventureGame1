@@ -41,22 +41,11 @@ public class Enemy {
         //hit()
         public void hit(int damage) {
             health -= damage;
-
-            if (health <= 0) {
-
-                if (weapon != null) {
-                    room.addItem(weapon);
-
-                    System.out.println(
-                            getShortName() + " dead. " +
-                                    weapon.getShortName() + " dropped.");
-                } else {
-                    System.out.println(
-                            getShortName() + " dead.");
-                }
-                //room.removeEnemy(this); //rød nu, fordi vi skal tilføje removeEnemy i Room først.
-            }
         }
+        public boolean idDead(){
+            return health <=0;
+        }
+
         //attack player
         public void attack(Player player) {
             if (weapon == null) {
@@ -70,6 +59,7 @@ public class Enemy {
             int damage = weapon.getDamage();
 
             weapon.attack();
+            System.out.println(shortName + " attacks you with " + weapon.getShortName() + " and deals " + damage + " damage.");
             player.takeDamage(damage);
         }
 }

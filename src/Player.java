@@ -206,7 +206,7 @@ public class Player {
         } else if (health >= 40) {
             System.out.println("Health: " + health + " - You are injured.");
         } else if (health >= 1) {
-            System.out.println("Health: " + health + "You are badly hurt.");
+            System.out.println("Health: " + health + " - You are badly hurt.");
         } else {
             System.out.println("Health: " + health + " - You should be dead.");
         }
@@ -216,16 +216,19 @@ public class Player {
     public void takeDamage(int amount) {
         health -= amount;
 
-        if (health < 0) {
-            health = 0;
-        }
-
         System.out.println("You lost " + amount + " health.");
+
+        if (health == 0) {
+            System.out.println("You are dead!");
+        }
     }
 
     public void heal(int amount) {
         health += amount;
 
+    }
+    public boolean isDead() {
+        return health <= 0;
     }
 
     public Item findItem(String itemName) {
@@ -299,5 +302,9 @@ public class Player {
         if (enemy.getHealth() > 0) {
             enemy.attack(this);
         }
+        else{
+            System.out.println("the " + enemy.getShortName() + " is dead. " + "The " + enemy.getWeapon().getShortName() + " dropped to the ground.");
+        }
     }
 }
+

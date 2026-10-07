@@ -20,7 +20,7 @@ public class RangedWeapon extends Weapon {
     }
     @Override
     public String getAttackVerb() {
-        return "shoots";
+        return "shoot";
     }
     @Override
     public String getUsesLeftText() {

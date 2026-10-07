@@ -13,7 +13,7 @@ public class MeleeWeapon extends Weapon {
     }
     @Override
     public String getAttackVerb() {
-        return "slashes";
+        return "slash";
     }
     @Override
     public String getUsesLeftText() {

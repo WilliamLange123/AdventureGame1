@@ -82,4 +82,7 @@ public class   Adventure {
 
         player.attack(enemy);
     }
+    public Player getPlayer() {
+        return player;
+    }
 }

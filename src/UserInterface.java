@@ -13,16 +13,19 @@ public class UserInterface {
 
 
         while (true) {
+
+            if (game.getPlayer().isDead()) {
+                System.out.println("Game Over.");
+                break;
+            }
             System.out.print("What do you do: ");
             String command = scanner.nextLine();
 
             if (command.equals("look")) {
                 game.look();
-                if (command.equals("exit")){
-                    game.showHealth();
-                }
             } else if (command.equals("help")) {
                 game.help();
+
             } else if (command.equals("go north")) {
                 game.move("go north");
             } else if (command.equals("go east")) {
