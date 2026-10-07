@@ -24,6 +24,6 @@ public class RangedWeapon extends Weapon {
     }
     @Override
     public String getUsesLeftText() {
-        return usesLeft + " uses left";
+        return usesLeft + " uses left.";
     }
 }

@@ -87,8 +87,23 @@ public class Room {
         } else {
             System.out.println("You can see:");
 
-            for (Item item : Item) {
-                System.out.println("- " + item.getLongName());
+            for (Item item : Item) { //expanded, viser nu også health maden giver
+                if (item instanceof Food) {
+                    Food food = (Food) item;
+
+                    System.out.println(
+                            "- " + item.getLongName()
+                                    + " (Health: " + food.getHealthPoints() + ")."
+                    );
+                } else if (item instanceof Weapon) {
+                    Weapon weapon = (Weapon) item;
+                    System.out.println(
+                            "- " + item.getLongName()
+                                    + " (Damage: " + weapon.getDamage() + ")."
+                    );
+                } else {
+                    System.out.println("- " + item.getLongName());
+                }
             }
         }
         if (enemies.isEmpty()) {
@@ -96,8 +111,14 @@ public class Room {
         } else {
             System.out.println("Enemies:");
 
-            for (Enemy enemy : enemies) {
-                System.out.println("- " + enemy.getLongName());
+            for (Enemy enemy : enemies) { //nyt, viser nu enemies health og damage ved siden af deres navn.
+                System.out.println(
+                        "- " + enemy.getLongName()
+                                + " (Health: " + enemy.getHealth()
+                                + ". Damage: " + enemy.getDamage() + ")."
+                );
+
+                System.out.println(enemy.getDescription());
             }
         }
     }
@@ -112,5 +133,15 @@ public class Room {
 
     public void removeEnemy(Enemy enemy) {
         enemies.remove(enemy);
+    }
+
+    public Enemy findEnemy(String shortName) { //vi havde glemt at skrive det ind
+        for (Enemy enemy : enemies) {
+            if (enemy.getShortName().equalsIgnoreCase(shortName)) {
+                return enemy;
+            }
+        }
+
+        return null;
     }
 }

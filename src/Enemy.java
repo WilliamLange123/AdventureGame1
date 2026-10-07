@@ -15,8 +15,8 @@ public class Enemy {
             this.health = health;
             this.weapon = weapon;
             this.room = room;
-
         }
+
         public String getShortName() {
             return shortName;
         }
@@ -29,24 +29,35 @@ public class Enemy {
         public int getHealth() {
             return health;
         }
+
         public Weapon getWeapon() {
             return weapon;
+        }
+            public int getDamage() {
+                if (weapon == null) {
+                    return 0;
+                }
+                return weapon.getDamage();
         }
         public Room getRoom() {
             return room;
         }
-        public void setRoom(Room room) {
-        this.room = room;
+        public void setRoom(Room room) {this.room = room;
         }
-        //hit()
+
         public void hit(int damage) {
             health -= damage;
+
+            if (health <= 0) { //nyt, det havde vi ikke, så enemy droppede ikke deres våben efter de døde
+                room.addItem(weapon);
+                room.removeEnemy(this);
         }
+    }
+
         public boolean idDead(){
             return health <=0;
         }
 
-        //attack player
         public void attack(Player player) {
             if (weapon == null) {
                 return;
@@ -59,8 +70,8 @@ public class Enemy {
             int damage = weapon.getDamage();
 
             weapon.attack();
-            System.out.println(shortName + " attacks you with " + weapon.getShortName() + " and deals " + damage + " damage.");
+            System.out.println(getLongName() + " attacks you with "
+                    + weapon.getDisplayName() + " and deals " + damage + " damage.");
             player.takeDamage(damage);
         }
 }
-

@@ -47,6 +47,7 @@ public class Map1 {
         room5.setSouth(room8);
         room5.addItem(GamesItems.scroll); //ender her til sidst, så et specielt item
         room5.addItem(GamesItems.mask);
+        room5.addItem(GamesItems.hellFruit); //spis før du kæmper mod Demon Ruler
         room5.addEnemy(GamesItems.demonLord);
         GamesItems.demonLord.setRoom(room5);
 

@@ -19,5 +19,10 @@ public class Item {
     public boolean canEquip(){
         return false;
     }
-}
 
+    //Ændrer første bogstav til stort bogstav, fx sling -> Sling, sword -> Sword osv.
+    public String getDisplayName() {
+        String name = shortName;
+        return Character.toUpperCase(name.charAt(0)) + name.substring(1);
+    }
+}

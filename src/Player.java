@@ -30,6 +30,12 @@ public class Player {
             currentRoom = nextRoom;
             System.out.println("You are currently in: " + currentRoom.getName());
             System.out.println(currentRoom.getDescription());
+
+            if (currentRoom.getEnemies().isEmpty()) { //når man går ind i et, får at vide om der er enemies
+                System.out.println("There appears to be no enemies here.");
+            } else {
+                System.out.println("Beware! There is an enemy here.");
+            }
         } else {
             System.out.println("You cant go this way!");
         }
@@ -57,14 +63,33 @@ public class Player {
         System.out.println("Inventory: ");
 
         for (Item item : inventory) {
-            System.out.println(item.getShortName());
+
+            if (item instanceof Food) { //expanded, viser også food health nu i inventory
+                Food food = (Food) item;
+
+                System.out.println(
+                        item.getDisplayName()
+                        + " (Health: "
+                        + food.getHealthPoints()
+                        + ")."
+                );
+            } else if (item instanceof Weapon) { //viser våben damage i inventory
+                Weapon weapon = (Weapon) item;
+                System.out.println(
+                        item.getDisplayName()
+                                + " (Damage: " + weapon.getDamage() + ")"
+                );
+
+            } else {
+                System.out.println(item.getDisplayName());
+            }
         }
         System.out.println();
         if (equippedWeapon == null) {
             System.out.println("Equipped weapon: None");
         } else {
             System.out.println("Equipped weapon: "
-                    + equippedWeapon.getShortName());
+                    + equippedWeapon.getDisplayName());
         }
     }
 
@@ -179,8 +204,32 @@ public class Player {
 
         if (item != null) {
             inventory.add(item);
-            System.out.println("You picked up the " + item.getShortName());
-        } else {
+
+            if (item instanceof Food) { //expanded, så den viser hvor meget health maden giver
+                Food food = (Food) item;
+
+                System.out.println(
+                        "You picked up the "
+                                + item.getShortName()
+                                + " (Health: "
+                                + food.getHealthPoints()
+                                + ")."
+                );
+            } else if (item instanceof Weapon) { //viser hvor meget damage et våben slår med
+                Weapon weapon = (Weapon) item;
+                System.out.println(
+                        "You picked up the " + item.getShortName()
+                                + " (Damage: " + weapon.getDamage() + ")."
+                );
+            } else {
+                System.out.println(
+                        "You picked up the "
+                                + item.getShortName()
+                                + "."
+                );
+            }
+        }
+        else {
             System.out.println("That item is not here.");
         }
     }
@@ -190,7 +239,7 @@ public class Player {
             if (item.getShortName().equalsIgnoreCase(itemName)) {
                 inventory.remove(item);
                 currentRoom.addItem(item);
-                System.out.println("You dropped the " + item.getShortName());
+                System.out.println("You dropped the " + item.getDisplayName());
                 return;
             }
         }
@@ -216,9 +265,9 @@ public class Player {
     public void takeDamage(int amount) {
         health -= amount;
 
-        System.out.println("You lost " + amount + " health.");
+        System.out.println("You lost " + amount + " health. You currently have " + health + " health.");
 
-        if (health == 0) {
+        if (health <= 0) {
             System.out.println("You are dead!");
         }
     }
@@ -261,7 +310,8 @@ public class Player {
         if (item.canEquip()) {
             setEquippedWeapon((Weapon) item);
 
-            System.out.println(item.getShortName() + " equipped.");
+            System.out.println(item.getDisplayName() + " equipped (Damage: "
+                    + getEquippedWeapon().getDamage() + ")."); //se om det virker i morgen.
         } else {
             System.out.println("You cannot equip that item.");
         }
@@ -289,22 +339,25 @@ public class Player {
 
         System.out.println(
                 "You "
-                        + equippedWeapon.getAttackVerb()
-                        + " the "
-                        + enemy.getShortName()
-                        + " with "
-                        + equippedWeapon.getShortName()
-                        + " and deal "
-                        + damage
-                        + " damage. "
-                        + equippedWeapon.getUsesLeftText()
+                + equippedWeapon.getAttackVerb()
+                + " the "
+                + enemy.getLongName()
+                + " with "
+                + equippedWeapon.getDisplayName()
+                + " and deal "
+                + damage
+                + " damage. "
+                + equippedWeapon.getUsesLeftText()
         );
         if (enemy.getHealth() > 0) {
             enemy.attack(this);
         }
-        else{
-            System.out.println("the " + enemy.getShortName() + " is dead. " + "The " + enemy.getWeapon().getShortName() + " dropped to the ground.");
+        else {
+            System.out.println(
+                    "You killed " + enemy.getLongName() + ". " +
+                    enemy.getWeapon().getDisplayName() +
+                    " dropped to the ground."
+            );
         }
     }
 }
-

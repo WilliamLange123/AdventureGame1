@@ -53,8 +53,8 @@ public class   Adventure {
         Player.EatOutcome outcome = player.eat(itemName);
         switch (outcome.getResult()) {
             case EATEN:
-                System.out.println("You ate " + outcome.getItemName());
-                System.out.println("You gained " + outcome.getHealthChange() + " health.");
+                System.out.println("You ate " + outcome.getItemName() +
+                                    ". You gained " + outcome.getHealthChange() + " health.");
                 break;
 
             case NOT_FOOD:
