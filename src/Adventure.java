@@ -68,7 +68,6 @@ public class   Adventure {
             case NOT_FOUND:
                 System.out.println("You don't have that item.");
                 break;
-
         }
     }
     public void equip(String itemName) {player.equip(itemName);}
