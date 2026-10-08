@@ -5,7 +5,6 @@ public class GamesItems {
     static Item ember = new Item("ember", "A glowing [ember] from the eternal fires of Hell. It radiates intense heat and never seems to burn out.");
     static Item skull = new Item("skull", "A cracked human [skull] with glowing red eyes. It seems to watch your every move.");
     static Item chain = new Item("chain", "A heavy iron [chain] stained with soot and blood. It was likely used to punish lost souls.");
-    static Item pitchfork = new Item("pitchfork", "A sharp demonic [pitchfork] with a dark red handle. It looks surprisingly well maintained.");
     static Item horn = new Item("horn", "A broken demon [horn]. The surface is blackened as if it has survived countless battles.");
     static Item gem = new Item("gem", "A blood-red [gem] that glows faintly in the darkness. Strange energy flows within it.");
     static Item key = new Item("key", "A rusty iron [key] forged in Hellfire. It looks like it could unlock an ancient gate.");
@@ -51,9 +50,10 @@ public class GamesItems {
     static Food demonMeat = new Food("demon meat", "Meat taken from a fallen demon. It is toxic to humans despite its appetizing smell", -30);
     static Food soulRot = new Food("soul rot", "A blackened lump of food corrupted by dark magic. Consuming it drains both body and spirit", -35);
 
-    // Test-våben, kan fjernes senere
+    // Våben i Rooms
     static Weapon demonsBranch = new MeleeWeapon("branch", "A thick, twisted [branch] covered in black ash. It looks like it was torn from a dead tree.", 10);
     static Weapon ashSling = new RangedWeapon("sling", "A crude [sling] made from leather and a forked piece of wood. It is loaded with small chunks of volcanic rock.", 10, 3);
+    static Weapon pitchfork = new MeleeWeapon("pitchfork", "A sharp demonic [pitchfork] with a dark red handle. It looks surprisingly well maintained.", 25);
 
     // Våben
     static Weapon frostFang = new MeleeWeapon("sword", "A [sword] forged from ancient glacial ice. Its freezing edge is said to pierce even the toughest dragon scales", 45);
@@ -69,7 +69,6 @@ public class GamesItems {
     static Weapon hellFire = new RangedWeapon("hellfire", "A devastating projectile of [hellfire]", 25, 15);
 
     //Enemy
-    static Enemy emberling = new Enemy("emberling", "Small Emberling","A small [emberling] born from the flames of Hell. Its body is covered in black scales, glowing with cracks of molten red beneath them. It attacks with razor-sharp claws.", 15, rustyClaws, null);
     static Enemy lesserDemon = new Enemy("demon", "Lesser Demon", "A small red [demon] with glowing yellow eyes. It snarls constantly and leaves scorch marks wherever it walks.", 30, rustyClaws, null);
     static Enemy hellHound = new Enemy("hound", "Hell Hound", "A massive black [hound] with burning fur and smoke pouring from its mouth.", 40, flamingFangs, null);
     static Enemy soulCollector = new Enemy("collector", "Soul Collector", "A hooded soul [collector] carrying a lantern filled with trapped souls. Faint cries can be heard from within.", 50, soulChain, null);
