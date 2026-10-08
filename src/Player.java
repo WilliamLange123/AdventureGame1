@@ -236,6 +236,10 @@ public class Player {
     public void drop(String itemName) {
         for (Item item : inventory) {
             if (item.getShortName().equalsIgnoreCase(itemName)) {
+
+                if (item == equippedWeapon) {
+                    unequip(item.getShortName());
+                }
                 inventory.remove(item);
                 currentRoom.addItem(item);
                 System.out.println("You dropped the " + item.getDisplayName());
@@ -298,7 +302,20 @@ public class Player {
     public void setEquippedWeapon(Weapon weapon) {
         equippedWeapon = weapon;
     }
+    public void unequip(String itemName) {
 
+        if (equippedWeapon == null) {
+            System.out.println("No weapon equipped.");
+            return;
+        }
+        if (!equippedWeapon.getShortName().equalsIgnoreCase(itemName)) {
+            System.out.println("That weapon is not equipped.");
+            return;
+        }
+        System.out.println(equippedWeapon.getDisplayName() + " unequipped.");
+
+        equippedWeapon = null;
+    }
     public void equip(String itemName) {
         Item item = findItem(itemName);
 

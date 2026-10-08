@@ -33,6 +33,7 @@ public class   Adventure {
         System.out.print("help, ");
         System.out.print("health, ");
         System.out.print("equip, ");
+        System.out.print("unequip, ");
         System.out.print("attack, ");
         System.out.println("exit");
 
@@ -68,7 +69,9 @@ public class   Adventure {
         }
     }
     public void equip(String itemName) {player.equip(itemName);}
-
+    public void unequip(String itemName) {
+        player.unequip(itemName);
+    }
     //Player angriber enemy, er kun sat til hvis der kun er 1 enemy i et room, kan ændres senere
     public void attack() {
 
