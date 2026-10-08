@@ -3,6 +3,7 @@ import java.util.Locale;
 public class   Adventure {
     private Player player;
     private Map1 map;
+
     public Adventure() {
         map = new Map1();
         player = new Player(map.getStartingRoom());
@@ -15,7 +16,8 @@ public class   Adventure {
     public void look() {
         player.look();
     }
-    public void showHealth(){
+
+    public void showHealth() {
         player.showHealth();
     }
 
@@ -38,18 +40,23 @@ public class   Adventure {
         System.out.println("exit");
 
     }
+
     public void inventory() {
         player.showInventory();
     }
+
     public void showCurrentRoom() {
         System.out.println(player.getCurrentRoom().getDescription());
     }
-    public void pickup(String itemName){
+
+    public void pickup(String itemName) {
         player.pickup(itemName);
     }
-    public void drop(String itemName){
+
+    public void drop(String itemName) {
         player.drop(itemName);
     }
+
     public void eat(String itemName) {
         Player.EatOutcome outcome = player.eat(itemName);
         switch (outcome.getResult()) {
@@ -70,23 +77,38 @@ public class   Adventure {
                 break;
         }
     }
-    public void equip(String itemName) {player.equip(itemName);}
+
+    public void equip(String itemName) {
+        player.equip(itemName);
+    }
+
     public void unequip(String itemName) {
         player.unequip(itemName);
     }
-    //Player angriber enemy, er kun sat til hvis der kun er 1 enemy i et room, kan ændres senere
-    public void attack() {
+
+    public void attack(){
+        System.out.println("Cannot attack. please specify an enemy");
+    }
+    public void attack(String enemyName) {
 
         if (player.getCurrentRoom().getEnemies().isEmpty()) {
             System.out.println("There is no enemy here to attack.");
             return;
         }
 
-        //get(0) = den første enemy på listen af enemies i rummet, skrevet i rækkefølgen top to bottom i Map1
-        Enemy enemy = player.getCurrentRoom().getEnemies().get(0);
+        for (Enemy enemy : player.getCurrentRoom().getEnemies()) {
+            if (enemy.getShortName().equalsIgnoreCase(enemyName)) {
+                player.attack(enemy);
+                return;
+            }
+        }
+        System.out.println("No enemy with that name is here.");
 
-        player.attack(enemy);
+
+        //get(0) = den første enemy på listen af enemies i rummet, skrevet i rækkefølgen top to bottom i Map1
+
     }
+
     public Player getPlayer() {
         return player;
     }

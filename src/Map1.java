@@ -81,7 +81,6 @@ public class Map1 {
         room9.setWest(room8);
         room9.addItem(GamesItems.pitchfork);
         room9.addItem(GamesItems.horn);
-        room9.addEnemy(GamesItems.demonLord);
 
 
     }

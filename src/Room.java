@@ -91,16 +91,10 @@ public class Room {
                 if (item instanceof Food) {
                     Food food = (Food) item;
 
-                    System.out.println(
-                            "- " + item.getLongName()
-                                    + " (Health: " + food.getHealthPoints() + ")."
-                    );
+                    System.out.println("- " + item.getLongName() + " (Health: " + food.getHealthPoints() + ").");
                 } else if (item instanceof Weapon) {
                     Weapon weapon = (Weapon) item;
-                    System.out.println(
-                            "- " + item.getLongName()
-                                    + " (Damage: " + weapon.getDamage() + ")."
-                    );
+                    System.out.println("- " + item.getLongName() + " (Damage: " + weapon.getDamage() + ").");
                 } else {
                     System.out.println("- " + item.getLongName());
                 }
@@ -112,11 +106,7 @@ public class Room {
             System.out.println("Enemies:");
 
             for (Enemy enemy : enemies) { //nyt, viser nu enemies health og damage ved siden af deres navn.
-                System.out.println(
-                        "- " + enemy.getLongName()
-                                + " (Health: " + enemy.getHealth()
-                                + ". Damage: " + enemy.getDamage() + ")."
-                );
+                System.out.println("- " + enemy.getLongName() + " (Health: " + enemy.getHealth() + ". Damage: " + enemy.getDamage() + ").");
 
                 System.out.println(enemy.getDescription());
             }

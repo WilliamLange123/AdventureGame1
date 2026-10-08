@@ -58,7 +58,12 @@ public class UserInterface {
                 game.unequip(itemName);
             }
             else if (command.equals("attack")){
-                game.attack();
+                 game.attack();
+            }
+
+            else if (command.startsWith("attack")){
+                String enemyName = command.substring(7);
+                game.attack(enemyName);
             }
             else
                 System.out.println("Unknown command, try again.");

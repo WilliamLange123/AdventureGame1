@@ -83,7 +83,7 @@ public boolean isFinalboss() {
                     System.out.println(
                             getShortName() + " dead.");
                 }
-                //room.removeEnemy(this); //rød nu, fordi vi skal tilføje removeEnemy i Room først.
+
             }
         }
         //attack player

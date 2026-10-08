@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+
 public class Player {
     private Room currentRoom;
     private ArrayList<Item> inventory;
@@ -67,18 +68,10 @@ public class Player {
             if (item instanceof Food) { //expanded, viser også food health nu i inventory
                 Food food = (Food) item;
 
-                System.out.println(
-                        item.getDisplayName()
-                                + " (Health: "
-                                + food.getHealthPoints()
-                                + ")."
-                );
+                System.out.println(item.getDisplayName() + " (Health: " + food.getHealthPoints() + ").");
             } else if (item instanceof Weapon) { //viser våben damage i inventory
                 Weapon weapon = (Weapon) item;
-                System.out.println(
-                        item.getDisplayName()
-                                + " (Damage: " + weapon.getDamage() + ")"
-                );
+                System.out.println(item.getDisplayName() + " (Damage: " + weapon.getDamage() + ")");
 
             } else {
                 System.out.println(item.getDisplayName());
@@ -88,8 +81,7 @@ public class Player {
         if (equippedWeapon == null) {
             System.out.println("Equipped weapon: None");
         } else {
-            System.out.println("Equipped weapon: "
-                    + equippedWeapon.getDisplayName());
+            System.out.println("Equipped weapon: " + equippedWeapon.getDisplayName());
         }
     }
 
@@ -129,11 +121,7 @@ public class Player {
             if (item.getShortName().equalsIgnoreCase(itemName)) {
 
                 if (!(item instanceof Food)) {
-                    return new EatOutcome(
-                            EatResult.NOT_FOOD,
-                            item.getShortName(),
-                            0
-                    );
+                    return new EatOutcome(EatResult.NOT_FOOD, item.getShortName(), 0);
                 }
 
                 Food food = (Food) item;
@@ -141,11 +129,7 @@ public class Player {
                 inventory.remove(i);
                 heal(food.getHealthPoints());
 
-                return new EatOutcome(
-                        EatResult.EATEN,
-                        item.getShortName(),
-                        food.getHealthPoints()
-                );
+                return new EatOutcome(EatResult.EATEN, item.getShortName(), food.getHealthPoints());
             }
         }
 
@@ -158,30 +142,18 @@ public class Player {
 
                 currentRoom.addItem(item);
 
-                return new EatOutcome(
-                        EatResult.NOT_FOOD,
-                        item.getShortName(),
-                        0
-                );
+                return new EatOutcome(EatResult.NOT_FOOD, item.getShortName(), 0);
             }
 
             Food food = (Food) item;
 
             heal(food.getHealthPoints());
 
-            return new EatOutcome(
-                    EatResult.EATEN,
-                    item.getShortName(),
-                    food.getHealthPoints()
-            );
+            return new EatOutcome(EatResult.EATEN, item.getShortName(), food.getHealthPoints());
         }
 
         // Kun hvis item'et hverken findes i inventory eller rum
-        return new EatOutcome(
-                EatResult.NOT_FOUND,
-                null,
-                0
-        );
+        return new EatOutcome(EatResult.NOT_FOUND, null, 0);
 
     }
 
@@ -208,25 +180,12 @@ public class Player {
             if (item instanceof Food) { //expanded, så den viser hvor meget health maden giver
                 Food food = (Food) item;
 
-                System.out.println(
-                        "You picked up the "
-                                + item.getShortName()
-                                + " (Health: "
-                                + food.getHealthPoints()
-                                + ")."
-                );
+                System.out.println("You picked up the " + item.getShortName() + " (Health: " + food.getHealthPoints() + ").");
             } else if (item instanceof Weapon) { //viser hvor meget damage et våben slår med
                 Weapon weapon = (Weapon) item;
-                System.out.println(
-                        "You picked up the " + item.getShortName()
-                                + " (Damage: " + weapon.getDamage() + ")."
-                );
+                System.out.println("You picked up the " + item.getShortName() + " (Damage: " + weapon.getDamage() + ").");
             } else {
-                System.out.println(
-                        "You picked up the "
-                                + item.getShortName()
-                                + "."
-                );
+                System.out.println("You picked up the " + item.getShortName() + ".");
             }
         } else {
             System.out.println("That item is not here.");
@@ -277,6 +236,10 @@ public class Player {
 
     public void heal(int amount) {
         health += amount;
+        System.out.println("Health: " + health);
+        if (health <= 0){
+            System.out.println("You are dead! ");
+        }
 
     }
 
@@ -327,8 +290,7 @@ public class Player {
         if (item.canEquip()) {
             setEquippedWeapon((Weapon) item);
 
-            System.out.println(item.getDisplayName() + " equipped (Damage: "
-                    + getEquippedWeapon().getDamage() + ")."); //se om det virker i morgen.
+            System.out.println(item.getDisplayName() + " equipped (Damage: " + getEquippedWeapon().getDamage() + ")."); //se om det virker i morgen.
         } else {
             System.out.println("You cannot equip that item.");
         }
@@ -337,46 +299,31 @@ public class Player {
     public void attack(Enemy enemy) {
         if (currentRoom.getEnemies().isEmpty()) {
             if (GamesItems.demonLord.isFinalboss()) {
-             
+
                 System.out.println("There are no enemies here to attack.");
             }
             return;
 
         }
-            if (equippedWeapon == null) {
-                System.out.println("No weapon equipped.");
-                return;
-            }
-            if (!equippedWeapon.canUse()) {
-                System.out.println("No ammunition left.");
-                return;
-            }
-            int damage = equippedWeapon.getDamage();
+        if (equippedWeapon == null) {
+            System.out.println("No weapon equipped.");
+            return;
+        }
+        if (!equippedWeapon.canUse()) {
+            System.out.println("No ammunition left.");
+            return;
+        }
+        int damage = equippedWeapon.getDamage();
 
-            equippedWeapon.attack();
+        equippedWeapon.attack();
 
-            enemy.hit(damage);
+        enemy.hit(damage);
 
-            System.out.println(
-                    "You "
-                            + equippedWeapon.getAttackVerb()
-                            + " the "
-                            + enemy.getLongName()
-                            + " with "
-                            + equippedWeapon.getDisplayName()
-                            + " and deal "
-                            + damage
-                            + " damage. "
-                            + equippedWeapon.getUsesLeftText()
-            );
-            if (enemy.getHealth() > 0) {
-                enemy.attack(this);
-            } else {
-                System.out.println(
-                        "You killed " + enemy.getLongName() + ". " +
-                                enemy.getWeapon().getDisplayName() +
-                                " dropped to the ground."
-                );
-            }
+        System.out.println("You " + equippedWeapon.getAttackVerb() + " the " + enemy.getLongName() + " with " + equippedWeapon.getDisplayName() + " and deal " + damage + " damage. " + equippedWeapon.getUsesLeftText());
+        if (enemy.getHealth() > 0) {
+            enemy.attack(this);
+        } else {
+            System.out.println("You killed " + enemy.getLongName() + ". " + enemy.getWeapon().getDisplayName() + " dropped to the ground.");
         }
     }
+}
