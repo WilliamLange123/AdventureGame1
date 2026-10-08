@@ -19,6 +19,9 @@ public class Map1 {
         room1.addItem(GamesItems.mushroom);
         room1.addItem((GamesItems.ashSling));
         room1.addEnemy(GamesItems.lesserDemon);
+        room1.addEnemy(GamesItems.demonLord);
+        GamesItems.demonLord.setRoom(room1);
+
         GamesItems.lesserDemon.setRoom(room1);
 
         room2.setEast(room3);
@@ -41,14 +44,14 @@ public class Map1 {
         room4.addItem(GamesItems.ember);
         room4.addItem(GamesItems.torch);
         room4.addItem(GamesItems.emberFruit);
-        room4.addEnemy(GamesItems.infernalGuard);
-        GamesItems.infernalGuard.setRoom(room4);
+       // room4.addEnemy(GamesItems.infernalGuard);
+       // GamesItems.infernalGuard.setRoom(room4);
 
         room5.setSouth(room8);
         room5.addItem(GamesItems.scroll); //ender her til sidst, så et specielt item
         room5.addItem(GamesItems.mask);
         room5.addEnemy(GamesItems.demonLord);
-        GamesItems.demonLord.setRoom(room5);
+        GamesItems.demonLord.setRoom(room1);
 
         room6.setSouth(room9);
         room6.setNorth(room3);
@@ -62,8 +65,8 @@ public class Map1 {
         room7.addItem(GamesItems.coal);
         room7.addItem(GamesItems.mysteryMeat);
         room7.addItem(GamesItems.frostFang);
-        room7.addEnemy(GamesItems.torturedWarrior);
-        GamesItems.torturedWarrior.setRoom(room7);
+        //room7.addEnemy(GamesItems.torturedWarrior);
+      //  GamesItems.torturedWarrior.setRoom(room7);
 
         room8.setNorth(room5);
         room8.setEast(room9);
