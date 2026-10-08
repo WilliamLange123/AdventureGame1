@@ -50,6 +50,7 @@ public class Map1 {
         room5.addItem(GamesItems.hellFruit); //spis før du kæmper mod Demon Ruler
         room5.addEnemy(GamesItems.demonLord);
         GamesItems.demonLord.setRoom(room5);
+        GamesItems.demonLord.setFinalBossRoom(room9);
 
         room6.setSouth(room9);
         room6.setNorth(room3);
@@ -80,8 +81,8 @@ public class Map1 {
         room9.setWest(room8);
         room9.addItem(GamesItems.pitchfork);
         room9.addItem(GamesItems.horn);
-        room9.addEnemy(GamesItems.abyssStalker);
-        GamesItems.abyssStalker.setRoom(room9);
+        room9.addEnemy(GamesItems.demonLord);
+
 
     }
     public Room getStartingRoom() {

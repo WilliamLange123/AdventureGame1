@@ -6,6 +6,8 @@ public class Enemy {
         private int health;
         private Weapon weapon;
         private Room room;
+        private Room finalBossRoom;
+        private boolean finalboss = false;
 
         public Enemy(String shortName, String longName, String description,
                      int health, Weapon weapon, Room room) {
@@ -15,8 +17,8 @@ public class Enemy {
             this.health = health;
             this.weapon = weapon;
             this.room = room;
-        }
 
+        }
         public String getShortName() {
             return shortName;
         }
@@ -29,35 +31,62 @@ public class Enemy {
         public int getHealth() {
             return health;
         }
-
         public Weapon getWeapon() {
             return weapon;
-        }
-            public int getDamage() {
-                if (weapon == null) {
-                    return 0;
-                }
-                return weapon.getDamage();
         }
         public Room getRoom() {
             return room;
         }
-        public void setRoom(Room room) {this.room = room;
+        public int getDamage() {
+            if (weapon == null) {
+                return 0;
+            }
+            return weapon.getDamage();
+        }
+public boolean isFinalboss() {
+            return finalboss;
+
+}
+        public void setRoom(Room room) {
+        this.room = room;
         }
 
+    public Room getFinalBossRoom() {
+        return finalBossRoom;
+    }
+    public void setFinalBossRoom(Room finalBossRoom){
+            this.finalBossRoom = finalBossRoom;
+    }
+     public Room getFinalboos(){return finalBossRoom;}
+    public void setFinalBoss(boolean finalboss){this.finalboss = finalboss;}
+    //hit()
         public void hit(int damage) {
             health -= damage;
 
-            if (health <= 0) { //nyt, det havde vi ikke, så enemy droppede ikke deres våben efter de døde
-                room.addItem(weapon);
+            if (health <= 0) {
+                if (this == GamesItems.demonLord && !finalboss){
+                    finalboss = true;
+                health = 250;
                 room.removeEnemy(this);
-        }
-    }
+                setRoom(finalBossRoom);
+                finalBossRoom.addEnemy(this);
+                System.out.println("The demon lord escapes and retreats to the final chamber !");
+                return;
+            }
+                if (weapon != null) {
+                    room.addItem(weapon);
 
-        public boolean idDead(){
-            return health <=0;
+                    System.out.println(
+                            getShortName() + " dead. " +
+                                    weapon.getShortName() + " dropped.");
+                } else {
+                    System.out.println(
+                            getShortName() + " dead.");
+                }
+                //room.removeEnemy(this); //rød nu, fordi vi skal tilføje removeEnemy i Room først.
+            }
         }
-
+        //attack player
         public void attack(Player player) {
             if (weapon == null) {
                 return;
@@ -70,8 +99,7 @@ public class Enemy {
             int damage = weapon.getDamage();
 
             weapon.attack();
-            System.out.println(getLongName() + " attacks you with "
-                    + weapon.getDisplayName() + " and deals " + damage + " damage.");
             player.takeDamage(damage);
         }
 }
+

@@ -69,9 +69,9 @@ public class Player {
 
                 System.out.println(
                         item.getDisplayName()
-                        + " (Health: "
-                        + food.getHealthPoints()
-                        + ")."
+                                + " (Health: "
+                                + food.getHealthPoints()
+                                + ")."
                 );
             } else if (item instanceof Weapon) { //viser våben damage i inventory
                 Weapon weapon = (Weapon) item;
@@ -228,8 +228,7 @@ public class Player {
                                 + "."
                 );
             }
-        }
-        else {
+        } else {
             System.out.println("That item is not here.");
         }
     }
@@ -276,6 +275,7 @@ public class Player {
         health += amount;
 
     }
+
     public boolean isDead() {
         return health <= 0;
     }
@@ -318,46 +318,48 @@ public class Player {
     }
 
     public void attack(Enemy enemy) {
-
-        if (enemy == null) {
-            System.out.println("There is no enemy to attack.");
+        if (currentRoom.getEnemies().isEmpty()) {
+            if (GamesItems.demonLord.isFinalboss()) {
+             
+                System.out.println("There are no enemies here to attack.");
+            }
             return;
-        }
-        if (equippedWeapon == null) {
-            System.out.println("No weapon equipped.");
-            return;
-        }
-        if (!equippedWeapon.canUse()) {
-            System.out.println("No ammunition left.");
-            return;
-        }
-        int damage = equippedWeapon.getDamage();
 
-        equippedWeapon.attack();
-
-        enemy.hit(damage);
-
-        System.out.println(
-                "You "
-                + equippedWeapon.getAttackVerb()
-                + " the "
-                + enemy.getLongName()
-                + " with "
-                + equippedWeapon.getDisplayName()
-                + " and deal "
-                + damage
-                + " damage. "
-                + equippedWeapon.getUsesLeftText()
-        );
-        if (enemy.getHealth() > 0) {
-            enemy.attack(this);
         }
-        else {
+            if (equippedWeapon == null) {
+                System.out.println("No weapon equipped.");
+                return;
+            }
+            if (!equippedWeapon.canUse()) {
+                System.out.println("No ammunition left.");
+                return;
+            }
+            int damage = equippedWeapon.getDamage();
+
+            equippedWeapon.attack();
+
+            enemy.hit(damage);
+
             System.out.println(
-                    "You killed " + enemy.getLongName() + ". " +
-                    enemy.getWeapon().getDisplayName() +
-                    " dropped to the ground."
+                    "You "
+                            + equippedWeapon.getAttackVerb()
+                            + " the "
+                            + enemy.getLongName()
+                            + " with "
+                            + equippedWeapon.getDisplayName()
+                            + " and deal "
+                            + damage
+                            + " damage. "
+                            + equippedWeapon.getUsesLeftText()
             );
+            if (enemy.getHealth() > 0) {
+                enemy.attack(this);
+            } else {
+                System.out.println(
+                        "You killed " + enemy.getLongName() + ". " +
+                                enemy.getWeapon().getDisplayName() +
+                                " dropped to the ground."
+                );
+            }
         }
     }
-}
