@@ -69,13 +69,14 @@ public class Player {
                 Food food = (Food) item;
 
                 System.out.println(item.getDisplayName() + " (Health: " + food.getHealthPoints() + ").");
-            } else if (item instanceof Weapon) { //viser våben damage i inventory
-                Weapon weapon = (Weapon) item;
-                System.out.println(item.getDisplayName() + " (Damage: " + weapon.getDamage() + ")");
-
             } else {
-                System.out.println(item.getDisplayName());
+                if (item.getItemInfo().isEmpty()) {
+                    System.out.println("- " + item.getLongName());
+                } else {
+                    System.out.println("- " + item.getLongName() + " (" + item.getItemInfo() + ")");
+                }
             }
+
         }
         System.out.println();
         if (equippedWeapon == null) {
@@ -181,13 +182,15 @@ public class Player {
                 Food food = (Food) item;
 
                 System.out.println("You picked up the " + item.getShortName() + " (Health: " + food.getHealthPoints() + ").");
-            } else if (item instanceof Weapon) { //viser hvor meget damage et våben slår med
-                Weapon weapon = (Weapon) item;
-                System.out.println("You picked up the " + item.getShortName() + " (Damage: " + weapon.getDamage() + ").");
             } else {
-                System.out.println("You picked up the " + item.getShortName() + ".");
-            }
-        } else {
+
+                if (item.getItemInfo().isEmpty()) {
+                    System.out.println("You picked up the " + item.getShortName() + ".");
+                } else {
+                    System.out.println("You picked up the " + item.getShortName() + " (" + item.getItemInfo() + ")."
+                    );
+                }            }
+        }else{
             System.out.println("That item is not here.");
         }
     }

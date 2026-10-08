@@ -9,4 +9,9 @@ public class Food extends Item{
     public int getHealthPoints(){
         return this.healthPoints;
     }
+
+    @Override
+    public String getItemInfo() {
+        return "Health: " + healthPoints;
+    }
 }

@@ -22,4 +22,9 @@ public abstract class Weapon extends Item {
     public boolean canEquip() {
         return true;
     }
+
+    @Override
+    public String getItemInfo() {
+        return "Damage: " + damage;
+    }
 }

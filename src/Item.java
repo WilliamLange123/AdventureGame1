@@ -24,5 +24,7 @@ public class Item {
     public String getDisplayName() {
         String name = shortName;
         return Character.toUpperCase(name.charAt(0)) + name.substring(1);
+    }public String getItemInfo() {
+        return "";
     }
 }

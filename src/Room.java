@@ -87,16 +87,11 @@ public class Room {
         } else {
             System.out.println("You can see:");
 
-            for (Item item : Item) { //expanded, viser nu også health maden giver
-                if (item instanceof Food) {
-                    Food food = (Food) item;
-
-                    System.out.println("- " + item.getLongName() + " (Health: " + food.getHealthPoints() + ").");
-                } else if (item instanceof Weapon) {
-                    Weapon weapon = (Weapon) item;
-                    System.out.println("- " + item.getLongName() + " (Damage: " + weapon.getDamage() + ").");
-                } else {
+            for (Item item : Item) {
+                if (item.getItemInfo().isEmpty()) {
                     System.out.println("- " + item.getLongName());
+                } else {
+                    System.out.println("- " + item.getLongName() + " (" + item.getItemInfo() + ")");
                 }
             }
         }
