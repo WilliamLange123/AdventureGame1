@@ -2,16 +2,12 @@ import java.util.Scanner;
 
 public class UserInterface {
 
-
     Adventure game = new Adventure();
 
     Scanner scanner = new Scanner(System.in);
 
     public void start() {
-
         game.showCurrentRoom();
-
-
         while (true) {
 
             if (game.getPlayer().isDead()) {

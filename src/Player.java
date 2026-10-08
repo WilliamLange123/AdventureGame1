@@ -32,7 +32,7 @@ public class Player {
             System.out.println("You are currently in: " + currentRoom.getName());
             System.out.println(currentRoom.getDescription());
 
-            if (currentRoom.getEnemies().isEmpty()) { //når man går ind i et, får at vide om der er enemies
+            if (currentRoom.getEnemies().isEmpty()) {
                 System.out.println("There appears to be no enemies here.");
             } else {
                 System.out.println("Beware! There is an enemy here.");
@@ -43,21 +43,8 @@ public class Player {
 
     }
 
-    public void takeItem(Item item) {
-        if (item != null) {
-            inventory.add(item);
-        }
-    }
-
-    public void dropItem(Item item) {
-        inventory.remove(item);
-        currentRoom.addItem(item);
-    }
-
     public void showInventory() {
-
         if (inventory.isEmpty()) {
-
             System.out.println("Your inventory is empty.");
             return;
         }
@@ -65,7 +52,7 @@ public class Player {
 
         for (Item item : inventory) {
 
-            if (item instanceof Food) { //expanded, viser også food health nu i inventory
+            if (item instanceof Food) {
                 Food food = (Food) item;
 
                 System.out.println(item.getDisplayName() + " (Health: " + food.getHealthPoints() + ").");
@@ -76,7 +63,6 @@ public class Player {
                     System.out.println("- " + item.getLongName() + " (" + item.getItemInfo() + ")");
                 }
             }
-
         }
         System.out.println();
         if (equippedWeapon == null) {
@@ -113,18 +99,12 @@ public class Player {
     }
 
     public EatOutcome eat(String itemName) {
-
-        // Tjek inventory først
         for (int i = 0; i < inventory.size(); i++) {
-
             Item item = inventory.get(i);
-
             if (item.getShortName().equalsIgnoreCase(itemName)) {
-
                 if (!(item instanceof Food)) {
                     return new EatOutcome(EatResult.NOT_FOOD, item.getShortName(), 0);
                 }
-
                 Food food = (Food) item;
 
                 inventory.remove(i);
@@ -133,8 +113,6 @@ public class Player {
                 return new EatOutcome(EatResult.EATEN, item.getShortName(), food.getHealthPoints());
             }
         }
-
-        // Hvis ikke i inventory, så tjek rummet
         Item item = currentRoom.removeItem(itemName);
 
         if (item != null) {
@@ -152,8 +130,6 @@ public class Player {
 
             return new EatOutcome(EatResult.EATEN, item.getShortName(), food.getHealthPoints());
         }
-
-        // Kun hvis item'et hverken findes i inventory eller rum
         return new EatOutcome(EatResult.NOT_FOUND, null, 0);
 
     }
@@ -162,14 +138,9 @@ public class Player {
         return currentRoom;
     }
 
-    public void setCurrentRoom() {
-        this.currentRoom = currentRoom;
-    }
-
     public void look() {
         System.out.println("You are currently in: " + currentRoom.getName());
         currentRoom.look();
-
     }
 
     public void pickup(String itemName) {
@@ -178,19 +149,19 @@ public class Player {
         if (item != null) {
             inventory.add(item);
 
-            if (item instanceof Food) { //expanded, så den viser hvor meget health maden giver
+            if (item instanceof Food) {
                 Food food = (Food) item;
 
                 System.out.println("You picked up the " + item.getShortName() + " (Health: " + food.getHealthPoints() + ").");
             } else {
-
                 if (item.getItemInfo().isEmpty()) {
                     System.out.println("You picked up the " + item.getShortName() + ".");
                 } else {
                     System.out.println("You picked up the " + item.getShortName() + " (" + item.getItemInfo() + ")."
                     );
-                }            }
-        }else{
+                }
+            }
+        } else {
             System.out.println("That item is not here.");
         }
     }
@@ -240,10 +211,9 @@ public class Player {
     public void heal(int amount) {
         health += amount;
         System.out.println("Health: " + health);
-        if (health <= 0){
+        if (health <= 0) {
             System.out.println("You are dead! ");
         }
-
     }
 
     public boolean isDead() {
@@ -268,6 +238,7 @@ public class Player {
     public void setEquippedWeapon(Weapon weapon) {
         equippedWeapon = weapon;
     }
+
     public void unequip(String itemName) {
 
         if (equippedWeapon == null) {
@@ -282,6 +253,7 @@ public class Player {
 
         equippedWeapon = null;
     }
+
     public void equip(String itemName) {
         Item item = findItem(itemName);
 

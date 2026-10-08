@@ -74,10 +74,6 @@ public class Room {
         return null;
     }
 
-    public ArrayList<Item> getItems() {
-        return Item;
-    }
-
     public void look() {
 
         System.out.println(getDescription());
@@ -120,13 +116,4 @@ public class Room {
         enemies.remove(enemy);
     }
 
-    public Enemy findEnemy(String shortName) { //vi havde glemt at skrive det ind
-        for (Enemy enemy : enemies) {
-            if (enemy.getShortName().equalsIgnoreCase(shortName)) {
-                return enemy;
-            }
-        }
-
-        return null;
-    }
 }

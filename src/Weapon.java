@@ -6,18 +6,17 @@ public abstract class Weapon extends Item {
         super(shortName, longName);
         this.damage = damage;
     }
-
     public int getDamage() {
         return damage;
     }
 
-    public abstract boolean canUse(); //kan våbnet overhovedet bruges nu?
+    public abstract boolean canUse();
 
-    public abstract void attack(); //brug våbnet
+    public abstract void attack();
 
-    public abstract String getAttackVerb(); //beskriv hvordan våbnet angrebet, fx slash eller shoot
+    public abstract String getAttackVerb();
 
-    public abstract String getUsesLeftText(); //hvor meget ammunition du har
+    public abstract String getUsesLeftText();
 
     public boolean canEquip() {
         return true;

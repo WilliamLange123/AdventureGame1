@@ -25,12 +25,8 @@ public class GamesItems {
     static Food mysteryMeat = new Food("meat", "A charred piece of [meat] covered in strange black markings. It smells awful, but something about it looks strangely appetizing", 10);
     static Food devilsCake = new Food("cake", "A dark chocolate [cake] covered in black icing. It smells strangely warm, as if it was baked in Hell itself", 25);
 
-
-
-
     // Specielle foods
     static Food hellFruit = new Food("hell fruit", "A glowing fruit found deep within Hell. Despite its fiery appearance, it restores energy and strength", 20);
-
 
     // Våben i Rooms
     static Weapon demonsBranch = new MeleeWeapon("branch", "A thick, twisted [branch] covered in black ash. It looks like it was torn from a dead tree.", 10);
@@ -47,10 +43,9 @@ public class GamesItems {
     static Weapon fireBolts = new RangedWeapon("bolts", "Concentrated [bolts] of fire hurled from a burning spirit", 12, 8);
     static Weapon brokenGreatsword = new MeleeWeapon("greatsword", "A shattered [greatsword] still capable of deadly strikes", 13);
     static Weapon giantFlamingAxe = new MeleeWeapon("axe", "A massive [axe] engulfed in eternal fire.", 15);
-    static Weapon shadowKnives = new RangedWeapon("knives", "Multiple [knives] of darkness thrown from the shadows", 16, 10);
     static Weapon hellFire = new RangedWeapon("hellfire", "A devastating projectile of [hellfire]", 25, 15);
 
-    //Enemy
+    //Enemies
     static Enemy lesserDemon = new Enemy("demon", "Lesser Demon", "A small red [demon] with glowing yellow eyes. It snarls constantly and leaves scorch marks wherever it walks.", 30, rustyClaws, null);
     static Enemy hellHound = new Enemy("hound", "Hell Hound", "A massive black [hound] with burning fur and smoke pouring from its mouth.", 40, flamingFangs, null);
     static Enemy soulCollector = new Enemy("collector", "Soul Collector", "A hooded soul [collector] carrying a lantern filled with trapped souls. Faint cries can be heard from within.", 50, soulChain, null);

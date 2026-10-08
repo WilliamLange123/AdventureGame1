@@ -1,6 +1,4 @@
-import java.util.Locale;
-
-public class   Adventure {
+public class Adventure {
     private Player player;
     private Map1 map;
 
@@ -86,16 +84,15 @@ public class   Adventure {
         player.unequip(itemName);
     }
 
-    public void attack(){
+    public void attack() {
         System.out.println("Cannot attack. please specify an enemy");
     }
-    public void attack(String enemyName) {
 
+    public void attack(String enemyName) {
         if (player.getCurrentRoom().getEnemies().isEmpty()) {
             System.out.println("There is no enemy here to attack.");
             return;
         }
-
         for (Enemy enemy : player.getCurrentRoom().getEnemies()) {
             if (enemy.getShortName().equalsIgnoreCase(enemyName)) {
                 player.attack(enemy);
@@ -103,10 +100,6 @@ public class   Adventure {
             }
         }
         System.out.println("No enemy with that name is here.");
-
-
-        //get(0) = den første enemy på listen af enemies i rummet, skrevet i rækkefølgen top to bottom i Map1
-
     }
 
     public Player getPlayer() {

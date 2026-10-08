@@ -1,6 +1,5 @@
 public class Map1 {
 
-
     Room room1 = new Room("Room 1", "A scorching chamber lit by rivers of lava. The walls glow red with unbearable heat.");
     Room room2 = new Room("Room 2", "Flames dance across the floor while black smoke crawls along the ceiling. The air reeks of sulfur.");
     Room room3 = new Room("Room 3", "Sharp obsidian spikes rise from the ground. A distant roar echoes through the fiery darkness.");
@@ -45,9 +44,9 @@ public class Map1 {
         GamesItems.infernalGuard.setRoom(room4);
 
         room5.setSouth(room8);
-        room5.addItem(GamesItems.scroll); //ender her til sidst, så et specielt item
+        room5.addItem(GamesItems.scroll);
         room5.addItem(GamesItems.mask);
-        room5.addItem(GamesItems.hellFruit); //spis før du kæmper mod Demon Ruler
+        room5.addItem(GamesItems.hellFruit);
         room5.addEnemy(GamesItems.demonLord);
         GamesItems.demonLord.setRoom(room5);
         GamesItems.demonLord.setFinalBossRoom(room9);
@@ -81,8 +80,6 @@ public class Map1 {
         room9.setWest(room8);
         room9.addItem(GamesItems.pitchfork);
         room9.addItem(GamesItems.horn);
-
-
     }
     public Room getStartingRoom() {
         return room1;
